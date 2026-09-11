@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand tokens (from Oakleaf logo) */
+  --oak-green: #00b14b;
+  --oak-green-dark: #06783a;
+  --oak-green-deep: #06371f;
+  --oak-amber: #f9a13f;
+  --oak-amber-dark: #d9821f;
+  --oak-charcoal: #0a0a0a;
+  --oak-ink: #16241c;
+  --oak-surface: #ffffff;
+  --oak-surface-alt: #f8faf9;
+  --oak-line: #e4e9e5;
+
+  --background: var(--oak-surface);
+  --foreground: var(--oak-charcoal);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-oak-green: var(--oak-green);
+  --color-oak-green-dark: var(--oak-green-dark);
+  --color-oak-green-deep: var(--oak-green-deep);
+  --color-oak-amber: var(--oak-amber);
+  --color-oak-amber-dark: var(--oak-amber-dark);
+  --color-oak-charcoal: var(--oak-charcoal);
+  --color-oak-ink: var(--oak-ink);
+  --color-oak-surface: var(--oak-surface);
+  --color-oak-surface-alt: var(--oak-surface-alt);
+  --color-oak-line: var(--oak-line);
+  --font-sans: var(--font-body);
+}
+
+:root {
+  --font-body: -apple-system, "Segoe UI", Inter, Roboto, "Helvetica Neue",
+    Arial, ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--oak-green);
+  color: #fff;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--oak-green);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container-oak {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-oak {
+    padding-inline: 2rem;
+  }
+}
+
+.leaf-rule {
+  height: 3px;
+  width: 56px;
+  background: linear-gradient(90deg, var(--oak-green), var(--oak-amber));
+  border-radius: 2px;
+}

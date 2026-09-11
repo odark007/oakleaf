@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { mainNav } from "@/data/site";
 import { getIcon } from "@/lib/icons";
@@ -9,7 +10,6 @@ import { LinkButton } from "@/components/ui/button";
 const Menu = getIcon("Menu");
 const X = getIcon("X");
 const ChevronDown = getIcon("ChevronDown");
-const Leaf = getIcon("Leaf");
 
 export function Header() {
   const [openDesktop, setOpenDesktop] = useState<string | null>(null);
@@ -45,14 +45,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-oak-line">
       <div className="container-oak flex h-[76px] items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Oakleaf Training & Consulting home">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-oak-green-deep text-white">
-            <Leaf size={18} strokeWidth={2} />
-          </span>
-          <span className="leading-tight">
-            <span className="block font-semibold text-[1.05rem] text-oak-charcoal">Oakleaf</span>
-            <span className="block text-[0.68rem] text-oak-charcoal/60 tracking-wide">Training &amp; Consulting</span>
-          </span>
+        <Link href="/" className="flex items-center shrink-0" aria-label="Oakleaf Training & Consulting home">
+          <Image
+            src="/oakleaf-logo-navbar-280x100.png"
+            alt="Oakleaf Training & Consulting"
+            width={140}
+            height={50}
+            priority
+            className="h-11 w-auto"
+          />
         </Link>
 
         <nav ref={navRef} className="hidden lg:flex items-center gap-1" aria-label="Primary">

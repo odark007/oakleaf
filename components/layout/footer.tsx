@@ -1,9 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/data/site";
 import { services } from "@/data/services";
 import { getIcon } from "@/lib/icons";
 
-const Leaf = getIcon("Leaf");
 const Mail = getIcon("Mail");
 const Phone = getIcon("Phone");
 const MapPin = getIcon("MapPin");
@@ -17,11 +17,14 @@ export function Footer() {
       <div className="container-oak py-16">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-oak-amber">
-                <Leaf size={18} />
-              </span>
-              <span className="font-semibold text-white text-[1.05rem]">Oakleaf</span>
+            <Link href="/" className="inline-block">
+              <Image
+                src="/oakleaf-logo-navbar-280x100.png"
+                alt="Oakleaf Training & Consulting"
+                width={140}
+                height={50}
+                className="h-11 w-auto"
+              />
             </Link>
             <p className="mt-4 max-w-xs text-[0.92rem] leading-relaxed text-white/65">
               {siteConfig.tagline}

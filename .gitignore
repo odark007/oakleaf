@@ -10,6 +10,10 @@ build/
 .env.test.local
 .env.production.local
 
+# PHP Backend configuration with database secrets
+api/config.php
+admin/config.php
+
 *.tsbuildinfo
 
 .DS_Store

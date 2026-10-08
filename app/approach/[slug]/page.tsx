@@ -34,7 +34,7 @@ export default async function ApproachDetailPage({
 
   return (
     <>
-      <PageHero eyebrow={page.tagline} title={page.title} description={page.intro} />
+      <PageHero title={page.title} description={page.intro} />
       <section className="py-16 md:py-20">
         <div className="container-oak">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -12,12 +12,53 @@ const fieldClass =
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Form submission is deferred for client integration (e.g. a form
-    // endpoint or email service) once the site is deployed.
-    setSubmitted(true);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const email = String(formData.get("email") || "");
+    const phone = String(formData.get("phone") || "");
+
+    const newErrors: { email?: string; phone?: string } = {};
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    if (phone && !/^\+?\d{7,15}$/.test(phone)) {
+      newErrors.phone = "Please enter a valid phone number (numbers and + only).";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) return;
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const res = await fetch("/api/contact.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        setSubmitError(data.error || "Something went wrong. Please try again.");
+        setSubmitting(false);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Network error. Please check your connection and try again.");
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -47,8 +88,36 @@ export function ContactForm() {
           <label htmlFor="email" className="mb-1.5 block text-[0.85rem] font-medium text-oak-charcoal">
             Email
           </label>
-          <input id="email" name="email" type="email" required className={fieldClass} placeholder="you@organization.com" />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className={fieldClass}
+            placeholder="you@organization.com"
+            aria-invalid={!!errors.email}
+          />
+          {errors.email && (
+            <p className="mt-1.5 text-[0.82rem] text-red-600">{errors.email}</p>
+          )}
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="phone" className="mb-1.5 block text-[0.85rem] font-medium text-oak-charcoal">
+          Phone
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          className={fieldClass}
+          placeholder="Your phone number"
+          aria-invalid={!!errors.phone}
+        />
+        {errors.phone && (
+          <p className="mt-1.5 text-[0.82rem] text-red-600">{errors.phone}</p>
+        )}
       </div>
 
       <div>
@@ -89,8 +158,12 @@ export function ContactForm() {
         />
       </div>
 
-      <Button type="submit" variant="primary" className="rounded-sm">
-        Send Message
+      {submitError && (
+        <p className="text-[0.88rem] text-red-600">{submitError}</p>
+      )}
+
+      <Button type="submit" variant="primary" className="rounded-sm" disabled={submitting}>
+        {submitting ? "Sending..." : "Send Message"}
       </Button>
     </form>
   );

@@ -58,7 +58,14 @@ export default function ContactPage() {
                 <MessageCircle size={19} className="mt-0.5 shrink-0 text-oak-green" />
                 <div>
                   <p className="text-[0.8rem] text-oak-charcoal/50">WhatsApp</p>
-                  <p className="text-[0.98rem] font-medium text-oak-charcoal">{siteConfig.whatsapp}</p>
+                  <a
+                    href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[0.98rem] font-medium text-oak-charcoal hover:text-oak-green"
+                  >
+                    {siteConfig.whatsapp}
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3.5">

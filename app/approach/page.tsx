@@ -47,9 +47,7 @@ export default function ApproachPage() {
                   <h3 className="text-[1.05rem] font-semibold text-oak-charcoal">
                     {page.title}
                   </h3>
-                  <p className="mt-2 text-[0.9rem] leading-relaxed text-oak-charcoal/65">
-                    {page.tagline}
-                  </p>
+
                 </div>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-[0.85rem] font-medium text-oak-green">
                   Read more

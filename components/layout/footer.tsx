@@ -89,13 +89,25 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2.5 text-[0.88rem] text-white/65">
                 <Phone size={16} className="mt-0.5 shrink-0 text-oak-amber" />
-                <a href={`tel:${siteConfig.phone}`} className="hover:text-oak-amber">
+                <a
+                  href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-oak-amber"
+                >
                   {siteConfig.phone}
                 </a>
               </li>
               <li className="flex items-start gap-2.5 text-[0.88rem] text-white/65">
                 <MessageCircle size={16} className="mt-0.5 shrink-0 text-oak-amber" />
-                <span>WhatsApp: {siteConfig.whatsapp}</span>
+                <a
+                  href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-oak-amber"
+                >
+                  {siteConfig.whatsapp}
+                </a>
               </li>
               <li className="flex items-start gap-2.5 text-[0.88rem] text-white/65">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-oak-amber" />

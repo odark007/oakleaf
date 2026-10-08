@@ -7,10 +7,10 @@ export const siteConfig = {
     "Oakleaf Training & Consulting provides practical training, consulting, strategy, and organizational development solutions that help businesses, non-profits, institutions, and leaders improve performance and achieve sustainable results.",
   location: "Ghana",
   email: "info@oakleaftraining.com",
-  phone: "+233 000 000 000",
-  whatsapp: "+233 000 000 000",
-  linkedin: "https://www.linkedin.com/company/oakleaftraining",
-  facebook: "https://www.facebook.com/oakleaftraining",
+  phone: "+233 243 521 917",
+  whatsapp: "+233243521917",
+  linkedin: "#",
+  facebook: "#",
 };
 
 export const coreValues = [
@@ -95,7 +95,14 @@ export type NavItem = { label: string; href: string; children?: NavChild[] };
 
 export const mainNav: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "About Us", href: "/about" },
+      { label: "Team", href: "/about/team" },
+    ],
+  },
   {
     label: "Services",
     href: "/services",

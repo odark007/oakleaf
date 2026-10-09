@@ -33,8 +33,13 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="border-b border-oak-line bg-oak-surface-alt">
-        <div className="container-oak grid gap-12 py-20 md:grid-cols-[1.15fr_0.85fr] md:py-28">
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/Professional Workshop in a Modern Conference Room-Oakleaf training-consulting.png')" }}
+        />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="container-oak relative grid gap-12 py-20 md:grid-cols-[1.15fr_0.85fr] md:py-28">
           <div>
             <p className="text-[0.85rem] font-medium text-oak-green">
               Training &amp; Organizational Development, Ghana

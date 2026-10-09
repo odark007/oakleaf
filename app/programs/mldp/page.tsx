@@ -16,7 +16,16 @@ const m = programs.mldp;
 export default function MldpPage() {
   return (
     <>
-      <PageHero eyebrow={m.tagline} title={m.title} description={m.summary} />
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/Collaborative Business Workshop in a Bright Office.png')" }}
+        />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="relative">
+      <PageHero eyebrow={m.tagline} title={m.title} description={m.summary} transparent />
+        </div>
+      </section>
 
       <section className="py-16 md:py-20">
         <div className="container-oak">

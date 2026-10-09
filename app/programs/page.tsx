@@ -19,11 +19,21 @@ const ArrowUpRight = getIcon("ArrowUpRight");
 export default function ProgramsPage() {
   return (
     <>
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/Collaborative Business Workshop in a Bright Office.png')" }}
+        />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="relative">
       <PageHero
         eyebrow="Programs"
         title="Structured programs for lasting capability"
         description="Alongside our customized training and consulting engagements, Oakleaf runs two flagship programs built for repeatable, organization-wide impact."
+        transparent
       />
+        </div>
+      </section>
 
       <section className="py-16 md:py-20">
         <div className="container-oak grid gap-6 md:grid-cols-2">

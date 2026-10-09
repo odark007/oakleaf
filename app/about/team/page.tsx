@@ -18,11 +18,21 @@ const Linkedin = getIcon("Linkedin");
 export default function TeamPage() {
   return (
     <>
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/Diverse Team in a Modern Office.png')" }}
+        />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="relative">
       <PageHero
         eyebrow="Our Team"
         title="The people behind Oakleaf"
         description="Meet the dedicated professionals committed to developing people and organizations."
+        transparent
       />
+        </div>
+      </section>
 
       <section className="py-16 md:py-20">
         <div className="container-oak">

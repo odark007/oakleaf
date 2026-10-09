@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         name="email" 
                         required 
                         autofocus
-                        value="<?= htmlspecialchars($_POST['email'] ?? 'gofrance01@gmail.com') ?>"
+                        value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
                         placeholder="yourname@oakleafafrica.com"
                         class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-slate-800 transition"
                     >
@@ -117,15 +117,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     Sign In to Admin
                 </button>
             </form>
-
-            <div class="mt-6 pt-5 border-t border-slate-100 text-xs text-slate-500 leading-relaxed bg-slate-50 -mx-8 -mb-8 p-6 rounded-b-2xl">
-                <p class="font-semibold text-slate-700 mb-1">Default Superadmin Credentials:</p>
-                <div class="font-mono bg-white border border-slate-200 rounded p-2 text-[11px] text-slate-800 space-y-0.5">
-                    <div><strong>Email:</strong> gofrance01@gmail.com</div>
-                    <div><strong>Password:</strong> OakleafAdmin2026!</div>
-                </div>
-                <p class="text-[11px] text-slate-400 mt-2">You can change this password at any time in the <strong>Users</strong> section.</p>
-            </div>
         </div>
 
         <div class="text-center mt-6 text-xs text-slate-500">

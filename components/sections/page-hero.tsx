@@ -5,14 +5,16 @@ export function PageHero({
   title,
   description,
   children,
+  transparent = false,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   children?: ReactNode;
+  transparent?: boolean;
 }) {
   return (
-    <section className="border-b border-oak-line bg-oak-surface-alt">
+    <section className={`border-b border-oak-line ${transparent ? "" : "bg-oak-surface-alt"}`}>
       <div className="container-oak py-16 md:py-20">
         <div className="max-w-2xl">
           {eyebrow && (

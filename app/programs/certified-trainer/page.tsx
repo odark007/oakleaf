@@ -16,7 +16,16 @@ const p = programs.certifiedTrainer;
 export default function CertifiedTrainerPage() {
   return (
     <>
-      <PageHero eyebrow={p.tagline} title={p.title} description={p.summary} />
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/Collaborative Business Workshop in a Bright Office.png')" }}
+        />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="relative">
+      <PageHero eyebrow={p.tagline} title={p.title} description={p.summary} transparent />
+        </div>
+      </section>
 
       <section className="py-16 md:py-20">
         <div className="container-oak grid gap-12 lg:grid-cols-[1.5fr_1fr]">

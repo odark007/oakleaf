@@ -6,7 +6,7 @@ export const siteConfig = {
   description:
     "Oakleaf Training & Consulting provides practical training, consulting, strategy, and organizational development solutions that help businesses, non-profits, institutions, and leaders improve performance and achieve sustainable results.",
   location: "Ghana",
-  email: "info@oakleaftraining.com",
+  email: "info@oakleafafrica.com",
   phone: "+233 243 521 917",
   whatsapp: "+233243521917",
   linkedin: "#",
@@ -160,14 +160,6 @@ export const mainNav: NavItem[] = [
       { label: "Management & Leadership Development Program", href: "/programs/mldp" },
     ],
   },
-  {
-    label: "Digital Transformation",
-    href: "/digital-transformation",
-    children: [
-      { label: "Overview", href: "/digital-transformation" },
-      { label: "Digital Training", href: "/digital-transformation/training" },
-      { label: "Digital Consulting", href: "/digital-transformation/consulting" },
-    ],
-  },
+  { label: "Digital Transformation", href: "/digital-transformation" },
   { label: "Contact", href: "/contact" },
 ];

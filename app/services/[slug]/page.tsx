@@ -42,11 +42,50 @@ export default async function ServiceDetailPage({
 
   return (
     <>
-      <PageHero eyebrow="Service" title={service.title} description={service.intro}>
-        <div className="mt-3 text-oak-green">
-          <Icon size={30} strokeWidth={1.6} />
-        </div>
-      </PageHero>
+      {slug === "training-capacity-development" ||
+      slug === "leadership-development" ||
+      slug === "organizational-development" ||
+      slug === "human-resource-consulting" ||
+      slug === "performance-management" ||
+      slug === "consulting-advisory" ||
+      slug === "team-building-retreats" ? (
+        <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url('/images/${
+                slug === "training-capacity-development"
+                  ? "Inclusive Corporate Training Meeting"
+                  : slug === "leadership-development"
+                  ? "Leadership Meeting in a Modern Office"
+                  : slug === "organizational-development"
+                  ? "Collaborative Corporate Team Meeting"
+                  : slug === "human-resource-consulting"
+                  ? "Diverse Team in a Modern Office"
+                  : slug === "performance-management"
+                  ? "Professional Workshop in a Modern Conference Room-Oakleaf training-consulting"
+                  : slug === "consulting-advisory"
+                  ? "Collaborative Teamwork in a Modern Office"
+                  : "Diverse Team in a Modern Office"
+              }.png')`,
+            }}
+          />
+          <div className="absolute inset-0 bg-white/85" />
+          <div className="relative">
+            <PageHero eyebrow="Service" title={service.title} description={service.intro} transparent>
+              <div className="mt-3 text-oak-green">
+                <Icon size={30} strokeWidth={1.6} />
+              </div>
+            </PageHero>
+          </div>
+        </section>
+      ) : (
+        <PageHero eyebrow="Service" title={service.title} description={service.intro}>
+          <div className="mt-3 text-oak-green">
+            <Icon size={30} strokeWidth={1.6} />
+          </div>
+        </PageHero>
+      )}
 
       <section className="py-16 md:py-20">
         <div className="container-oak grid gap-12 lg:grid-cols-[1.5fr_1fr]">

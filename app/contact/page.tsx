@@ -25,11 +25,21 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd()) }}
       />
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/Bright Office Consultation Meeting.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="relative">
       <PageHero
         eyebrow="Contact"
         title="Let's build a stronger organization together"
         description="Whether you're developing better leaders, improving employee performance, or strengthening organizational systems, we're ready to partner with you."
+        transparent
       />
+        </div>
+      </section>
 
       <section className="py-16 md:py-20">
         <div className="container-oak grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">

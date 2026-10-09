@@ -34,7 +34,16 @@ export default async function ApproachDetailPage({
 
   return (
     <>
-      <PageHero title={page.title} description={page.intro} />
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/Collaborative Team Meeting in Modern Office.png')" }}
+        />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="relative">
+          <PageHero title={page.title} description={page.intro} transparent />
+        </div>
+      </section>
       <section className="py-16 md:py-20">
         <div className="container-oak">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

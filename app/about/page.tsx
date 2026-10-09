@@ -21,10 +21,18 @@ const aboutNav = [
 export default function AboutPage() {
   return (
     <>
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/Collaborative Teamwork in a Modern Office.png')" }}
+        />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="relative">
       <PageHero
         eyebrow="About Oakleaf"
         title="Your partner for people and organizational performance"
         description="Oakleaf Training & Consulting is a professional training and consulting firm committed to helping organizations unlock the potential of their people."
+        transparent
       >
         <nav aria-label="On this page" className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
           {aboutNav.map((item) => (
@@ -38,6 +46,8 @@ export default function AboutPage() {
           ))}
         </nav>
       </PageHero>
+        </div>
+      </section>
 
       <section id="who-we-are" className="scroll-mt-24 py-16 md:py-20">
         <div className="container-oak grid gap-10 md:grid-cols-[0.3fr_0.7fr]">

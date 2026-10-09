@@ -14,11 +14,21 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/Collaborative Teamwork in a Modern Office.png')" }}
+        />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="relative">
       <PageHero
         eyebrow="Our Services"
         title="Practical solutions across seven areas"
         description="Every service can be customized to your organization's context — from a single workshop to a multi-year capacity-building partnership."
+        transparent
       />
+        </div>
+      </section>
       <section className="py-16 md:py-20">
         <div className="container-oak">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

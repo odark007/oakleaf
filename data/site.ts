@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Oakleaf Training & Consulting",
   shortName: "Oakleaf",
-  domain: "https://oakleaftraining.com",
+  domain: "https://oakleafafrica.com",
   tagline: "Growing People. Strengthening Organizations. Creating Impact.",
   description:
     "Oakleaf Training & Consulting provides practical training, consulting, strategy, and organizational development solutions that help businesses, non-profits, institutions, and leaders improve performance and achieve sustainable results.",

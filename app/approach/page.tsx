@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/page-hero";
 import { StepTimeline } from "@/components/sections/step-timeline";
@@ -26,8 +27,19 @@ export default function ApproachPage() {
       />
 
       <section className="py-16 md:py-20">
-        <div className="container-oak max-w-2xl">
-          <StepTimeline steps={approachSteps} />
+        <div className="container-oak grid gap-12 lg:grid-cols-[1fr_0.8fr]">
+          <div className="max-w-2xl">
+            <StepTimeline steps={approachSteps} />
+          </div>
+          <div className="relative hidden lg:block">
+            <Image
+              src="/images/Abstract S-Curve Process Roadmap.jpg"
+              alt="Abstract S-Curve Process Roadmap"
+              width={600}
+              height={450}
+              className="rounded-2xl border border-oak-line object-cover shadow-sm"
+            />
+          </div>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaSection } from "@/components/sections/cta-section";
 import { coreValues } from "@/data/site";
@@ -50,8 +51,19 @@ export default function AboutPage() {
       </section>
 
       <section id="who-we-are" className="scroll-mt-24 py-16 md:py-20">
-        <div className="container-oak grid gap-10 md:grid-cols-[0.3fr_0.7fr]">
-          <h2 className="text-[1.6rem] font-semibold text-oak-charcoal">Who We Are</h2>
+        <div className="container-oak grid items-start gap-10 md:grid-cols-[0.3fr_0.7fr]">
+          <div className="flex flex-col gap-6">
+            <h2 className="text-[1.6rem] font-semibold text-oak-charcoal">Who We Are</h2>
+            <div className="relative hidden lg:block">
+              <Image
+                src="/images/Who We Are.jpg"
+                alt="Who We Are"
+                width={400}
+                height={300}
+                className="rounded-2xl border border-oak-line object-cover shadow-sm"
+              />
+            </div>
+          </div>
           <div className="max-w-2xl space-y-5 text-[1.02rem] leading-relaxed text-oak-charcoal/70">
             <p>
               We work with organizations to understand their unique challenges and develop
@@ -71,23 +83,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="vision" className="scroll-mt-24 border-t border-oak-line bg-oak-surface-alt py-16 md:py-20">
-        <div className="container-oak grid gap-10 md:grid-cols-[0.3fr_0.7fr]">
-          <h2 className="text-[1.6rem] font-semibold text-oak-charcoal">Our Vision</h2>
-          <p className="max-w-2xl text-[1.15rem] leading-relaxed text-oak-charcoal/80">
-            To be a trusted partner in developing people and organizations for sustainable
-            performance and positive impact.
-          </p>
-        </div>
-      </section>
-
-      <section id="mission" className="scroll-mt-24 py-16 md:py-20">
-        <div className="container-oak grid gap-10 md:grid-cols-[0.3fr_0.7fr]">
-          <h2 className="text-[1.6rem] font-semibold text-oak-charcoal">Our Mission</h2>
+      <section id="mission" className="scroll-mt-24 border-t border-oak-line bg-oak-surface-alt py-16 md:py-20">
+        <div className="container-oak grid items-start gap-10 md:grid-cols-[0.3fr_0.7fr]">
+          <div className="flex flex-col gap-6">
+            <h2 className="text-[1.6rem] font-semibold text-oak-charcoal">Our Mission</h2>
+            <div className="relative hidden lg:block">
+              <Image
+                src="/images/Our Mission.jpg"
+                alt="Our Mission"
+                width={400}
+                height={300}
+                className="rounded-2xl border border-oak-line object-cover shadow-sm"
+              />
+            </div>
+          </div>
           <p className="max-w-2xl text-[1.15rem] leading-relaxed text-oak-charcoal/80">
             To provide high-quality training, consulting, strategy, and organizational
             development solutions that build capable people, effective leaders, resilient
             organizations, and thriving communities.
+          </p>
+        </div>
+      </section>
+
+      <section id="vision" className="scroll-mt-24 py-16 md:py-20">
+        <div className="container-oak grid items-start gap-10 md:grid-cols-[0.3fr_0.7fr]">
+          <div className="flex flex-col gap-6">
+            <h2 className="text-[1.6rem] font-semibold text-oak-charcoal">Our Vision</h2>
+            <div className="relative hidden lg:block">
+              <Image
+                src="/images/Our Vision.jpg"
+                alt="Our Vision"
+                width={400}
+                height={300}
+                className="rounded-2xl border border-oak-line object-cover shadow-sm"
+              />
+            </div>
+          </div>
+          <p className="max-w-2xl text-[1.15rem] leading-relaxed text-oak-charcoal/80">
+            To be a trusted partner in developing people and organizations for sustainable
+            performance and positive impact.
           </p>
         </div>
       </section>

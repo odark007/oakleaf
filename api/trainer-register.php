@@ -99,9 +99,13 @@ try {
     if (file_exists($envPath)) {
         $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ($lines as $line) {
-            if (strpos($line, '=') !== false && strpos($line, '#') !== 0) {
+            $line = trim($line);
+            if ($line === '' || strpos($line, '#') === 0) {
+                continue;
+            }
+            if (strpos($line, '=') !== false) {
                 list($key, $value) = explode('=', $line, 2);
-                $envVars[trim($key)] = trim($value);
+                $envVars[trim($key)] = trim($value, " \t\r\n\"'");
             }
         }
     }
@@ -109,15 +113,20 @@ try {
     $serviceId = $envVars['EMAILJS_SERVICE_ID'] ?? '';
     $templateId = $envVars['EMAILJS_TEMPLATE_ID'] ?? '';
     $publicKey = $envVars['EMAILJS_PUBLIC_KEY'] ?? '';
+    $privateKey = $envVars['EMAILJS_PRIVATE_KEY'] ?? '';
+
+    $emailSent = false;
 
     if ($serviceId && $templateId && $publicKey) {
         $emailData = [
             'service_id' => $serviceId,
             'template_id' => $templateId,
             'user_id' => $publicKey,
+            'accessToken' => $privateKey,
             'template_params' => [
                 'to_email' => 'entrevahub@gmail.com',
                 'program_name' => 'Certified Trainer Program',
+                'subject' => 'You have received a registration - Certified Trainer Program',
                 'first_name' => $first_name,
                 'last_name' => $last_name,
                 'email' => $email,
@@ -127,6 +136,8 @@ try {
                 'position' => $position ?: 'N/A',
                 'registration_id' => $registrationId,
                 'submitted_at' => date('Y-m-d H:i:s'),
+                'service' => 'N/A',
+                'message' => 'N/A',
             ],
         ];
 
@@ -135,9 +146,16 @@ try {
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($emailData));
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-        curl_exec($ch);
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-    } else {
+
+        if ($httpCode === 200) {
+            $emailSent = true;
+        }
+    }
+
+    if (!$emailSent) {
         $to = 'entrevahub@gmail.com';
         $subject = 'You have received a registration - Certified Trainer Program';
         $plainMessage = "New Registration - Certified Trainer Program\n\n";

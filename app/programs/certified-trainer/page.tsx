@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/sections/page-hero";
 import { CtaSection } from "@/components/sections/cta-section";
 import { programs } from "@/data/programs";
 import { getIcon } from "@/lib/icons";
@@ -19,81 +18,23 @@ const p = programs.certifiedTrainer;
 export default function CertifiedTrainerPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+      <section className="relative min-h-[300px] overflow-hidden border-b border-oak-line bg-oak-surface-alt md:min-h-[400px]">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/Collaborative Business Workshop in a Bright Office.png')" }}
+          style={{ backgroundImage: "url('/images/Certified Trainer Course Banner.jpg')" }}
         />
-        <div className="absolute inset-0 bg-white/85" />
-        <div className="relative">
-      <PageHero eyebrow={p.tagline} title={p.title} description={p.summary} transparent />
-        </div>
       </section>
 
-      <section className="py-16 md:py-20">
-        <div className="container-oak grid gap-12 lg:grid-cols-[1.5fr_1fr]">
-          <div>
-            <h2 className="text-[1.3rem] font-semibold text-oak-charcoal">
-              Course Structure
-            </h2>
-            <div className="mt-6 space-y-5">
-              {p.structure.map((item, i) => (
-                <div key={item.title} className="flex gap-5 border-b border-oak-line pb-5 last:border-0">
-                  <span className="text-[0.85rem] font-semibold text-oak-green">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="text-[1.02rem] font-semibold text-oak-charcoal">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1.5 text-[0.92rem] leading-relaxed text-oak-charcoal/65">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <aside className="space-y-8 lg:pl-6">
-            <div>
-              <h2 className="text-[0.85rem] font-medium uppercase tracking-wide text-oak-charcoal/40">
-                Who it's for
-              </h2>
-              <ul className="mt-4 space-y-3">
-                {p.audience.map((a) => (
-                  <li key={a} className="flex items-start gap-2.5 text-[0.92rem] text-oak-charcoal/75">
-                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-oak-green" />
-                    {a}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="border border-oak-line bg-oak-surface-alt p-6">
-              <h2 className="text-[0.95rem] font-semibold text-oak-charcoal">
-                What you'll walk away with
-              </h2>
-              <ul className="mt-4 space-y-3">
-                {p.outcomes.map((o) => (
-                  <li key={o} className="flex items-start gap-2.5 text-[0.88rem] text-oak-charcoal/70">
-                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-oak-amber-dark" />
-                    {o}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section className="border-t border-oak-line py-16 md:py-20">
+      <section className="border-t border-oak-line pb-16 pt-8 md:pb-20 md:pt-10">
         <div className="container-oak">
           <div className="mx-auto max-w-4xl">
             <div className="text-center">
               <h2 id="become-a-certified-trainer-in-5-days-of-high-impact-hands-on-training" className="scroll-mt-24 text-[1.4rem] font-semibold text-oak-charcoal md:text-[1.8rem]">
-                BECOME A CERTIFIED TRAINER in 5 days of high impact hands-on training
+                BECOME A CERTIFIED TRAINER
               </h2>
+              <p className="mt-1 text-[1.1rem] leading-relaxed text-oak-charcoal/70">
+                in 5 days of high impact hands-on training
+              </p>
             </div>
 
             <div className="mt-8 space-y-6 text-oak-charcoal/80">
@@ -132,9 +73,10 @@ export default function CertifiedTrainerPage() {
                   <li className="flex gap-2">
                     <span>•</span>
                     <span>
-                      develop these 9 critical skills essential for any effective leader or professional: public
-                      speaking, presentation skills, self-confidence, attitude control, self-motivation, communication,
-                      interpersonal relations, goal setting, leadership.
+                      develop these 9 critical skills essential for any effective leader or professional:{" "}
+                      <em>public speaking</em>, <em>presentation skills</em>, <em>self-confidence</em>,{" "}
+                      <em>attitude control</em>, <em>self-motivation</em>, <em>communication</em>,{" "}
+                      <em>interpersonal relations</em>, <em>goal setting</em>, <em>leadership</em>.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -190,8 +132,8 @@ export default function CertifiedTrainerPage() {
               <TrainerRegisterTrigger />
               <p className="text-sm text-oak-charcoal/70">
                 Contact: <ContactPhone /> |{" "}
-                <a href="mailto:chris@oakleafafrica.com" className="text-oak-green hover:underline">
-                  chris@oakleafafrica.com
+                <a href="mailto:training@oakleafafrica.com" className="text-oak-green hover:underline">
+                  training@oakleafafrica.com
                 </a>
               </p>
             </div>
@@ -209,6 +151,63 @@ export default function CertifiedTrainerPage() {
           <div className="mt-8">
             <TestimonialSlider />
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-oak-line py-16 md:py-20">
+        <div className="container-oak grid gap-12 lg:grid-cols-[1.5fr_1fr]">
+          <div>
+            <h2 className="text-[1.3rem] font-semibold text-oak-charcoal">
+              Course Structure
+            </h2>
+            <div className="mt-6 space-y-5">
+              {p.structure.map((item, i) => (
+                <div key={item.title} className="flex gap-5 border-b border-oak-line pb-5 last:border-0">
+                  <span className="text-[0.85rem] font-semibold text-oak-green">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="text-[1.02rem] font-semibold text-oak-charcoal">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-[0.92rem] leading-relaxed text-oak-charcoal/65">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <aside className="space-y-8 lg:pl-6">
+            <div>
+              <h2 className="text-[0.85rem] font-medium uppercase tracking-wide text-oak-charcoal/40">
+                Who it's for
+              </h2>
+              <ul className="mt-4 space-y-3">
+                {p.audience.map((a) => (
+                  <li key={a} className="flex items-start gap-2.5 text-[0.92rem] text-oak-charcoal/75">
+                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-oak-green" />
+                    {a}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border border-oak-line bg-oak-surface-alt p-6">
+              <h2 className="text-[0.95rem] font-semibold text-oak-charcoal">
+                What you'll walk away with
+              </h2>
+              <ul className="mt-4 space-y-3">
+                {p.outcomes.map((o) => (
+                  <li key={o} className="flex items-start gap-2.5 text-[0.88rem] text-oak-charcoal/70">
+                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-oak-amber-dark" />
+                    {o}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
         </div>
       </section>
 

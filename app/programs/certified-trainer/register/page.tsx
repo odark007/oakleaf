@@ -37,8 +37,8 @@ export default function TrainerRegisterPage() {
                   0243521917
                 </a>{" "}
                 or{" "}
-                <a href="mailto:chris@oakleafafrica.com" className="text-oak-green hover:underline">
-                  chris@oakleafafrica.com
+                <a href="mailto:training@oakleafafrica.com" className="text-oak-green hover:underline">
+                  training@oakleafafrica.com
                 </a>{" "}
                 to register.
               </p>

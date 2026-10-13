@@ -14,6 +14,9 @@ build/
 api/config.php
 admin/config.php
 
+# Environment variables
+.env
+
 *.tsbuildinfo
 
 .DS_Store

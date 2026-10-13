@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { ServiceCard } from "@/components/sections/service-card";
 import { StepTimeline } from "@/components/sections/step-timeline";
 import { CtaSection } from "@/components/sections/cta-section";
+import { ImageSlider } from "@/components/sections/image-slider";
 import { services } from "@/data/services";
 import { approachSteps } from "@/data/approach-steps";
 import { getIcon } from "@/lib/icons";
@@ -152,6 +153,60 @@ export default function HomePage() {
                 <ArrowUpRight size={15} />
               </span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming Training */}
+      <section className="border-t border-oak-line bg-white py-16 md:py-20">
+        <div className="container-oak">
+          <div className="grid gap-8 md:grid-cols-2 md:items-center">
+            <div>
+              <div className="mb-6">
+                <ImageSlider />
+              </div>
+            </div>
+            <div>
+              <span className="text-[0.8rem] font-medium uppercase tracking-[0.18em] text-oak-green">
+                Upcoming Training
+              </span>
+              <h2 className="mt-3 text-[1.6rem] font-semibold text-oak-charcoal md:text-[2rem]">
+                BECOME A CERTIFIED TRAINER in 5 days of high impact hands-on training
+              </h2>
+              <p className="mt-4 text-[0.98rem] leading-relaxed text-oak-charcoal/70">
+                The GRID Training Methodology is a proven approach to designing and delivering highly interactive,
+                skills-based training. Gain practical tools to engage participants, drive behavioral change, and improve
+                workplace performance.
+              </p>
+              <p className="mt-3 text-[0.98rem] leading-relaxed text-oak-charcoal/70">
+                Develop your hidden potential and master 9 critical skills including public speaking, presentation,
+                communication, leadership, goal setting, self-confidence, attitude control, self-motivation, and
+                interpersonal relations.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-6">
+                <div>
+                  <p className="text-[0.8rem] font-medium uppercase tracking-wide text-oak-charcoal/40">Dates</p>
+                  <p className="mt-1 text-[0.95rem] font-medium text-oak-charcoal">
+                    Monday, 23rd – Friday, 27th November 2026
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[0.8rem] font-medium uppercase tracking-wide text-oak-charcoal/40">Venue</p>
+                  <p className="mt-1 text-[0.95rem] font-medium text-oak-charcoal">
+                    Entreva Hub, Community 25, Tema
+                  </p>
+                </div>
+              </div>
+              <div className="mt-6">
+                <LinkButton
+                  href="/programs/certified-trainer#become-a-certified-trainer-in-5-days-of-high-impact-hands-on-training"
+                  variant="primary"
+                  className="rounded-sm"
+                >
+                  Learn More
+                </LinkButton>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -158,6 +158,7 @@ export const mainNav: NavItem[] = [
       { label: "All Programs", href: "/programs" },
       { label: "Become a Certified Trainer", href: "/programs/certified-trainer" },
       { label: "Management & Leadership Development Program", href: "/programs/mldp" },
+      { label: "Managing People Effectively", href: "/programs/managing-people" },
     ],
   },
   { label: "Digital Transformation", href: "/digital-transformation" },

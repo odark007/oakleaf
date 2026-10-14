@@ -3,13 +3,17 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const images = [
+const defaultImages = [
   { src: "/images/cert-trainer-1.jpg", alt: "Certified Trainer Workshop" },
   { src: "/images/cert-trainer-2.jpg", alt: "Certified Trainer Workshop" },
   { src: "/images/cert-trainer-3.jpg", alt: "Certified Trainer Workshop" },
 ];
 
-export function ImageSlider() {
+export function ImageSlider({
+  images = defaultImages,
+}: {
+  images?: { src: string; alt: string }[];
+}) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

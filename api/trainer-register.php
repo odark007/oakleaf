@@ -21,17 +21,35 @@ $dbname = $config['dbname'];
 $username = $config['username'];
 $password = $config['password'];
 
-$first_name = trim($_POST['first_name'] ?? '');
-$last_name = trim($_POST['last_name'] ?? '');
+$full_name = trim($_POST['full_name'] ?? '');
+if ($full_name !== '') {
+    $parts = preg_split('/\s+/', $full_name, 2);
+    $first_name = $parts[0];
+    $last_name = $parts[1] ?? '';
+} else {
+    $first_name = trim($_POST['first_name'] ?? '');
+    $last_name = trim($_POST['last_name'] ?? '');
+    $full_name = trim($first_name . ' ' . $last_name);
+}
 $organization = trim($_POST['organization'] ?? '');
 $position = trim($_POST['position'] ?? '');
 $phone = trim($_POST['phone'] ?? '');
 $whatsapp = trim($_POST['whatsapp'] ?? '');
 $email = trim($_POST['email'] ?? '');
 
-if ($first_name === '' || $last_name === '' || $email === '' || $phone === '') {
+$knownPrograms = [
+    'certified-trainer' => 'Certified Trainer Program',
+    'managing-people' => 'Managing People Effectively',
+];
+$program = trim($_POST['program'] ?? 'certified-trainer');
+if (!isset($knownPrograms[$program])) {
+    $program = 'certified-trainer';
+}
+$programName = $knownPrograms[$program];
+
+if ($first_name === '' || $email === '' || $phone === '') {
     http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'First name, last name, email, and phone are required.']);
+    echo json_encode(['success' => false, 'error' => 'Full name, email, and phone are required.']);
     exit;
 }
 
@@ -73,13 +91,19 @@ try {
         phone VARCHAR(20) NOT NULL,
         whatsapp VARCHAR(20) DEFAULT NULL,
         email VARCHAR(255) NOT NULL,
+        program VARCHAR(100) NOT NULL DEFAULT 'certified-trainer',
         status VARCHAR(50) DEFAULT 'new',
         submitted_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+    $programCol = $pdo->query("SHOW COLUMNS FROM trainer_registrations LIKE 'program'")->fetchAll();
+    if (count($programCol) === 0) {
+        $pdo->exec("ALTER TABLE trainer_registrations ADD COLUMN program VARCHAR(100) NOT NULL DEFAULT 'certified-trainer' AFTER email");
+    }
+
     $stmt = $pdo->prepare(
-        'INSERT INTO trainer_registrations (first_name, last_name, organization, position, phone, whatsapp, email, submitted_at)
-         VALUES (:first_name, :last_name, :organization, :position, :phone, :whatsapp, :email, NOW())'
+        'INSERT INTO trainer_registrations (first_name, last_name, organization, position, phone, whatsapp, email, program, submitted_at)
+         VALUES (:first_name, :last_name, :organization, :position, :phone, :whatsapp, :email, :program, NOW())'
     );
 
     $stmt->execute([
@@ -90,6 +114,7 @@ try {
         ':phone' => $phone,
         ':whatsapp' => $whatsapp,
         ':email' => $email,
+        ':program' => $program,
     ]);
 
     $registrationId = $pdo->lastInsertId();
@@ -125,8 +150,9 @@ try {
             'accessToken' => $privateKey,
             'template_params' => [
                 'to_email' => 'entrevahub@gmail.com',
-                'program_name' => 'Certified Trainer Program',
-                'subject' => 'You have received a registration - Certified Trainer Program',
+                'program_name' => $programName,
+                'subject' => 'You have received a registration - ' . $programName,
+                'name' => $full_name,
                 'first_name' => $first_name,
                 'last_name' => $last_name,
                 'email' => $email,
@@ -157,8 +183,9 @@ try {
 
     if (!$emailSent) {
         $to = 'entrevahub@gmail.com';
-        $subject = 'You have received a registration - Certified Trainer Program';
-        $plainMessage = "New Registration - Certified Trainer Program\n\n";
+        $subject = 'You have received a registration - ' . $programName;
+        $plainMessage = "New Registration - {$programName}\n\n";
+        $plainMessage .= "Program: {$programName}\n";
         $plainMessage .= "Name: {$first_name} {$last_name}\n";
         $plainMessage .= "Email: {$email}\n";
         $plainMessage .= "Phone: {$phone}\n";

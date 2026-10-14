@@ -34,17 +34,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 }
 
+$programLabels = [
+    'certified-trainer' => 'Certified Trainer',
+    'managing-people' => 'Managing People',
+];
+
+$hasProgramCol = false;
+try {
+    $colCheck = $pdo->query("SHOW COLUMNS FROM trainer_registrations LIKE 'program'")->fetchAll();
+    $hasProgramCol = count($colCheck) > 0;
+} catch (Exception $e) {
+    $hasProgramCol = false;
+}
+
 if (isset($_GET['action']) && $_GET['action'] === 'export_csv') {
     header('Content-Type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename=oakleaf_trainer_registrations_' . date('Y-m-d') . '.csv');
     $output = fopen('php://output', 'w');
-    fputcsv($output, ['ID', 'Date', 'First Name', 'Last Name', 'Email', 'Phone', 'WhatsApp', 'Organization', 'Position', 'Status']);
+    fputcsv($output, ['ID', 'Date', 'Program', 'First Name', 'Last Name', 'Email', 'Phone', 'WhatsApp', 'Organization', 'Position', 'Status']);
 
     $stmt = $pdo->query("SELECT * FROM trainer_registrations ORDER BY submitted_at DESC");
     while ($row = $stmt->fetch()) {
+        $prog = $row['program'] ?? 'certified-trainer';
         fputcsv($output, [
             $row['id'],
             $row['submitted_at'],
+            $programLabels[$prog] ?? $prog,
             $row['first_name'],
             $row['last_name'],
             $row['email'],
@@ -60,6 +75,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'export_csv') {
 }
 
 $search = trim($_GET['search'] ?? '');
+$programFilter = trim($_GET['program'] ?? '');
 $sql = "SELECT * FROM trainer_registrations WHERE 1=1";
 $params = [];
 if ($search !== '') {
@@ -70,6 +86,10 @@ if ($search !== '') {
     $params[':s3'] = $term;
     $params[':s4'] = $term;
     $params[':s5'] = $term;
+}
+if ($programFilter !== '' && $hasProgramCol) {
+    $sql .= " AND program = :program";
+    $params[':program'] = $programFilter;
 }
 $sql .= " ORDER BY submitted_at DESC";
 $stmt = $pdo->prepare($sql);
@@ -86,7 +106,7 @@ render_admin_header('Programs Registration', 'programs');
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
             <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Programs Registration</h1>
-            <p class="text-sm text-slate-500 mt-1">Review all registrations received for the Certified Trainer Program.</p>
+            <p class="text-sm text-slate-500 mt-1">Review all registrations received across Oakleaf programs.</p>
         </div>
         <div class="flex items-center gap-3">
             <a href="programs.php?action=export_csv" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl shadow-sm transition">
@@ -127,6 +147,16 @@ render_admin_header('Programs Registration', 'programs');
                 >
             </div>
 
+            <select
+                name="program"
+                class="px-4 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-slate-800 bg-white font-semibold"
+            >
+                <option value="">All programs</option>
+                <?php foreach ($programLabels as $slug => $label): ?>
+                    <option value="<?= $slug ?>" <?= $programFilter === $slug ? 'selected' : '' ?>><?= htmlspecialchars($label) ?></option>
+                <?php endforeach; ?>
+            </select>
+
             <button type="submit" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl transition">
                 Filter
             </button>
@@ -154,6 +184,7 @@ render_admin_header('Programs Registration', 'programs');
                     <thead class="bg-slate-50 border-b border-slate-100 text-slate-500 uppercase tracking-wider font-semibold">
                         <tr>
                             <th class="py-3.5 px-4">Date</th>
+                            <th class="py-3.5 px-4">Program</th>
                             <th class="py-3.5 px-4">Name</th>
                             <th class="py-3.5 px-4">Contact</th>
                             <th class="py-3.5 px-4">Organization</th>
@@ -167,6 +198,12 @@ render_admin_header('Programs Registration', 'programs');
                             <tr class="hover:bg-slate-50/70 transition">
                                 <td class="py-3.5 px-4 font-mono text-[11px] text-slate-400 whitespace-nowrap">
                                     <?= date('M d, Y H:i', strtotime($row['submitted_at'])) ?>
+                                </td>
+                                <td class="py-3.5 px-4 whitespace-nowrap">
+                                    <?php $prog = $row['program'] ?? 'certified-trainer'; ?>
+                                    <span class="inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold <?= $prog === 'managing-people' ? 'bg-sky-100 text-sky-700' : 'bg-emerald-100 text-emerald-700' ?>">
+                                        <?= htmlspecialchars($programLabels[$prog] ?? $prog) ?>
+                                    </span>
                                 </td>
                                 <td class="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">
                                     <?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?>

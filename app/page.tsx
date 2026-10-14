@@ -28,6 +28,13 @@ const sectors = [
 
 const ArrowUpRight = getIcon("ArrowUpRight");
 const GraduationCap = getIcon("GraduationCap");
+
+const managingPeopleImages = [
+  { src: "/images/managing-people-hero.jpg", alt: "Managing People Effectively workshop session" },
+  { src: "/images/managing-people-team.png", alt: "Team collaborating during training" },
+  { src: "/images/managing-people-communication.png", alt: "Colleagues communicating at work" },
+  { src: "/images/managing-people-leadership.png", alt: "Leadership coaching session" },
+];
 const Compass = getIcon("Compass");
 
 export default function HomePage() {
@@ -200,6 +207,50 @@ export default function HomePage() {
               <div className="mt-6">
                 <LinkButton
                   href="/programs/certified-trainer#become-a-certified-trainer-in-5-days-of-high-impact-hands-on-training"
+                  variant="primary"
+                  className="rounded-sm"
+                >
+                  Learn More
+                </LinkButton>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 grid gap-8 border-t border-oak-line pt-16 md:grid-cols-2 md:items-center">
+            <div className="md:order-2">
+              <div className="mb-6 md:mb-0">
+                <ImageSlider images={managingPeopleImages} />
+              </div>
+            </div>
+            <div className="md:order-1">
+              <span className="text-[0.8rem] font-medium uppercase tracking-[0.18em] text-oak-green">
+                Upcoming Training
+              </span>
+              <h2 className="mt-3 text-[1.6rem] font-semibold text-oak-charcoal md:text-[2rem]">
+                MANAGING PEOPLE EFFECTIVELY in a 3-day practical workshop
+              </h2>
+              <p className="mt-4 text-[0.98rem] leading-relaxed text-oak-charcoal/70">
+                Build the practical leadership and people-management skills to motivate teams,
+                navigate challenges and help your organisation achieve its goals — covering
+                self-awareness, communication, team management and leadership.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-6">
+                <div>
+                  <p className="text-[0.8rem] font-medium uppercase tracking-wide text-oak-charcoal/40">Dates</p>
+                  <p className="mt-1 text-[0.95rem] font-medium text-oak-charcoal">
+                    18–20 November 2026, Tema &amp; 1–3 December 2026, Sunyani
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[0.8rem] font-medium uppercase tracking-wide text-oak-charcoal/40">Venue</p>
+                  <p className="mt-1 text-[0.95rem] font-medium text-oak-charcoal">
+                    Entreva Hub, Tema &amp; Sunyani
+                  </p>
+                </div>
+              </div>
+              <div className="mt-6">
+                <LinkButton
+                  href="/programs/managing-people#sessions"
                   variant="primary"
                   className="rounded-sm"
                 >

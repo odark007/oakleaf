@@ -2,10 +2,19 @@
 
 import { useState } from "react";
 
-export function TrainerRegisterModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+export function TrainerRegisterModal({
+  isOpen,
+  onClose,
+  program = "certified-trainer",
+  programLabel = "Certified Trainer Program",
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  program?: string;
+  programLabel?: string;
+}) {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
+    full_name: "",
     organization: "",
     position: "",
     phone: "",
@@ -32,6 +41,7 @@ export function TrainerRegisterModal({ isOpen, onClose }: { isOpen: boolean; onC
       Object.entries(formData).forEach(([key, value]) => {
         form.append(key, value);
       });
+      form.append("program", program);
 
       const response = await fetch("/api/trainer-register.php", {
         method: "POST",
@@ -66,35 +76,22 @@ export function TrainerRegisterModal({ isOpen, onClose }: { isOpen: boolean; onC
           {!submitted ? (
             <>
               <h2 className="mb-4 text-xl font-semibold text-oak-charcoal">
-                Register for Certified Trainer Program
+                Register for {programLabel}
               </h2>
 
               {error && <div className="mb-4 rounded bg-red-50 p-3 text-sm text-red-600">{error}</div>}
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="mb-1 block text-sm font-medium text-gray-700">First name *</label>
-                    <input
-                      type="text"
-                      name="first_name"
-                      required
-                      value={formData.first_name}
-                      onChange={handleChange}
-                      className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-oak-green"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-1 block text-sm font-medium text-gray-700">Last name *</label>
-                    <input
-                      type="text"
-                      name="last_name"
-                      required
-                      value={formData.last_name}
-                      onChange={handleChange}
-                      className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-oak-green"
-                    />
-                  </div>
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-gray-700">Full name *</label>
+                  <input
+                    type="text"
+                    name="full_name"
+                    required
+                    value={formData.full_name}
+                    onChange={handleChange}
+                    className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-oak-green"
+                  />
                 </div>
 
                 <div>

@@ -172,6 +172,7 @@ try {
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($emailData));
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36');
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
@@ -196,6 +197,8 @@ try {
         $plainMessage .= "Submitted: " . date('Y-m-d H:i:s') . "\n";
 
         $headers = "From: Oakleaf Training & Consulting <noreply@oakleafafrica.com>\r\n";
+        $headers .= "Reply-To: {$email}\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
         @mail($to, $subject, $plainMessage, $headers);
     }
 

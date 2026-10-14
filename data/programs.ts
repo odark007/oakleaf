@@ -42,7 +42,7 @@ export const programs = {
       "A completed training design ready to deliver in your own organization",
       "Confidence facilitating groups in person or virtually",
       "A framework for evaluating training effectiveness",
-      "Certification as an Oakleaf-trained facilitator",
+      "Certification as a Qualified GRID Method Facilitator",
     ],
   },
   mldp: {

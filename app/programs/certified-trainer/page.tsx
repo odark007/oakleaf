@@ -53,7 +53,7 @@ export default function CertifiedTrainerPage() {
       <section className="border-b border-oak-line bg-oak-green-deep py-4">
         <div className="container-oak">
           <h2 className="text-center text-[0.95rem] font-semibold text-white">
-            skills you&rsquo;d earn
+            skills you&rsquo;d gain
           </h2>
         </div>
         <div className="relative mt-2 overflow-hidden" aria-hidden="true">
@@ -121,6 +121,22 @@ export default function CertifiedTrainerPage() {
                   Anyone who desires a simplified and easy-to-use methodology to design and train others
                 </span>
               </li>
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>Subject-matter experts moving into a training or facilitation role</span>
+              </li>
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>HR and L&amp;D professionals expanding their delivery skills</span>
+              </li>
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>Supervisors and managers who train and coach their teams</span>
+              </li>
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>Independent consultants building a training practice</span>
+              </li>
             </ul>
           </div>
 
@@ -144,37 +160,6 @@ export default function CertifiedTrainerPage() {
           </div>
         </div>
 
-        <div className="container-oak mt-8">
-          <div className="bg-[#dd6f0e] p-6 text-white md:p-8">
-            <p className="leading-relaxed">
-              The GRID Training Method Course was developed by Len Stevens and used in South Africa for 30+
-              years. In Ghana, 100+ professionals have been trained and certified.
-            </p>
-            <p className="mt-4 leading-relaxed">The proven outcomes of this training:</p>
-            <ol className="mt-3 space-y-2 leading-relaxed">
-              <li className="flex gap-2">
-                <span>1.</span>
-                <span>develop their hidden potential and be more productive</span>
-              </li>
-              <li className="flex gap-2">
-                <span>2.</span>
-                <span>
-                  develop 9 critical skills essential for everyone to lead self, others and projects -
-                  public speaking, presentation skills, self-confidence, attitude control, self-motivation,
-                  communication, interpersonal relations, goal setting, and leadership. These are critical
-                  skills of any impactful trainer or facilitator.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span>3.</span>
-                <span>
-                  competence to design and deliver impactful, engaging, and highly interactive training to
-                  give learners a great learning experience and transfer skills.
-                </span>
-              </li>
-            </ol>
-          </div>
-        </div>
       </section>
 
       <section className="border-t border-oak-line pb-16 pt-8 md:pb-20 md:pt-10">
@@ -332,20 +317,6 @@ export default function CertifiedTrainerPage() {
           </div>
 
           <aside className="space-y-8 lg:pl-6">
-            <div>
-              <h2 className="text-[0.85rem] font-medium uppercase tracking-wide text-oak-charcoal/40">
-                Who it's for
-              </h2>
-              <ul className="mt-4 space-y-3">
-                {p.audience.map((a) => (
-                  <li key={a} className="flex items-start gap-2.5 text-[0.92rem] text-oak-charcoal/75">
-                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-oak-green" />
-                    {a}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             <div className="border border-oak-line bg-oak-surface-alt p-6">
               <h2 className="text-[0.95rem] font-semibold text-oak-charcoal">
                 What you'll walk away with

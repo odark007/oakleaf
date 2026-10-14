@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CtaSection } from "@/components/sections/cta-section";
 import { programs } from "@/data/programs";
 import { getIcon } from "@/lib/icons";
@@ -15,14 +16,165 @@ export const metadata: Metadata = {
 const CheckCircle2 = getIcon("CheckCircle2");
 const p = programs.certifiedTrainer;
 
+const earnedSkills = [
+  "Public Speaking",
+  "Self Motivation",
+  "Presentation Skills",
+  "Training / Facilitation Skills",
+  "Self Confidence",
+  "Attitude Control",
+  "Communication",
+  "Interpersonal Relations",
+  "Leadership",
+  "Goal Setting",
+];
+
 export default function CertifiedTrainerPage() {
   return (
     <>
-      <section className="relative min-h-[300px] overflow-hidden border-b border-oak-line bg-oak-surface-alt md:min-h-[400px]">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/Certified Trainer Course Banner.jpg')" }}
-        />
+      <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
+        <div className="relative aspect-[1983/793] w-full md:hidden">
+          <Image
+            src="/images/Certified Trainer Course Banner.jpg"
+            alt="Certified Trainer Course"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="relative hidden min-h-[300px] md:block md:min-h-[400px]">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/Certified Trainer Course Banner.jpg')" }}
+          />
+        </div>
+      </section>
+
+      <section className="border-b border-oak-line bg-oak-green-deep py-4">
+        <div className="container-oak">
+          <h2 className="text-center text-[0.95rem] font-semibold text-white">
+            skills you&rsquo;d earn
+          </h2>
+        </div>
+        <div className="relative mt-2 overflow-hidden" aria-hidden="true">
+          <div className="flex w-max animate-marquee">
+            {[...earnedSkills, ...earnedSkills].map((skill, i) => (
+              <span
+                key={i}
+                className="mx-5 flex items-center gap-10 whitespace-nowrap text-[0.9rem] font-medium text-white/90"
+              >
+                {skill}
+                <span className="text-oak-amber">•</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#c1121f] py-10 md:py-14">
+        <div className="container-oak grid gap-8 lg:grid-cols-[1.6fr_1fr]">
+          <div className="text-white">
+            <h3 className="text-[1.05rem] font-semibold text-oak-amber">
+              Purpose:
+            </h3>
+            <p className="mt-3 leading-relaxed">
+              To help reverse the skills-shortage in Africa, by &ldquo;releasing the trainer&rdquo; which
+              exists within every person&rsquo;s &ldquo;hidden potential&rdquo; &ndash; and training them
+              professionally, to teach and train others in the skills they possess. Participants need no
+              previous experience, or particular education, or background.
+            </p>
+
+            <h3 className="mt-6 text-[1.05rem] font-semibold text-oak-amber">
+              Who Should Attend
+            </h3>
+            <ul className="mt-3 space-y-2 leading-relaxed">
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>
+                  Anyone who needs to develop their personal skills, competence and abilities in Self
+                  Confidence, Public Speaking, Leadership, Goal Setting, Attitude Control, Communication,
+                  Inter-Personal Relations, Self-Motivation, Presentation Skills
+                </span>
+              </li>
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>Anyone who wants to develop their &ldquo;hidden potential&rdquo;</span>
+              </li>
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>Anyone who wants to develop their training/facilitation skills</span>
+              </li>
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>Anyone who wants to change the behavior and attitude of others</span>
+              </li>
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>
+                  Anyone who wants to gain competence to design, write manual and facilitate training using
+                  the GRID Training Method
+                </span>
+              </li>
+              <li className="flex gap-2">
+                <span>•</span>
+                <span>
+                  Anyone who desires a simplified and easy-to-use methodology to design and train others
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <div className="relative aspect-[4/3] w-full border-4 border-white">
+              <Image
+                src="/images/cert-trainer-1.jpg"
+                alt="Certified trainer participants"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[4/3] w-full border-4 border-white">
+              <Image
+                src="/images/cert-trainer-2.jpg"
+                alt="GRID training workshop session"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="container-oak mt-8">
+          <div className="bg-[#dd6f0e] p-6 text-white md:p-8">
+            <p className="leading-relaxed">
+              The GRID Training Method Course was developed by Len Stevens and used in South Africa for 30+
+              years. In Ghana, 100+ professionals have been trained and certified.
+            </p>
+            <p className="mt-4 leading-relaxed">The proven outcomes of this training:</p>
+            <ol className="mt-3 space-y-2 leading-relaxed">
+              <li className="flex gap-2">
+                <span>1.</span>
+                <span>develop their hidden potential and be more productive</span>
+              </li>
+              <li className="flex gap-2">
+                <span>2.</span>
+                <span>
+                  develop 9 critical skills essential for everyone to lead self, others and projects -
+                  public speaking, presentation skills, self-confidence, attitude control, self-motivation,
+                  communication, interpersonal relations, goal setting, and leadership. These are critical
+                  skills of any impactful trainer or facilitator.
+                </span>
+              </li>
+              <li className="flex gap-2">
+                <span>3.</span>
+                <span>
+                  competence to design and deliver impactful, engaging, and highly interactive training to
+                  give learners a great learning experience and transfer skills.
+                </span>
+              </li>
+            </ol>
+          </div>
+        </div>
       </section>
 
       <section className="border-t border-oak-line pb-16 pt-8 md:pb-20 md:pt-10">

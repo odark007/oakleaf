@@ -31,6 +31,16 @@
   --color-oak-surface-alt: var(--oak-surface-alt);
   --color-oak-line: var(--oak-line);
   --font-sans: var(--font-body);
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 :root {

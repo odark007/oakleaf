@@ -238,7 +238,7 @@ export default function HomePage() {
                 <div>
                   <p className="text-[0.8rem] font-medium uppercase tracking-wide text-oak-charcoal/40">Dates</p>
                   <p className="mt-1 text-[0.95rem] font-medium text-oak-charcoal">
-                    18–20 November 2026, Tema &amp; 1–3 December 2026, Sunyani
+                    18–20 November 2026, Sunyani &amp; 1–3 December 2026, Tema
                   </p>
                 </div>
                 <div>

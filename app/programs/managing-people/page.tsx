@@ -95,12 +95,7 @@ const styles = `
 .mpe .method-step strong{display:block;font-size:1.05rem;margin:6px 0}
 .mpe .method-step p{font-size:.88rem;margin:0}
 .mpe .method-step .step-icon{font-size:1.4rem;color:#ffc34c}
-.mpe .facilitator-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:40px;align-items:center}
-.mpe .facilitator-photo{background:var(--green-soft);border-radius:24px;overflow:hidden}
-.mpe .facilitator-photo img{width:100%;height:350px;object-fit:cover;object-position:center}
-.mpe .facilitator-copy h2{font-size:clamp(2rem,3.2vw,2.8rem);line-height:1.1;letter-spacing:-.04em;margin:12px 0}
-.mpe .facilitator-copy .role{color:var(--green);font-weight:750}
-.mpe .facilitator-copy p{color:var(--muted)}
+
 .mpe .credential-pills{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
 .mpe .pill{padding:8px 12px;background:var(--green-soft);border-radius:999px;font-size:.8rem;font-weight:700;color:var(--green-dark)}
 .mpe .sessions{background:#fbfdfb}
@@ -138,7 +133,7 @@ const styles = `
 .mpe .footer-col a:hover{color:white}
 .mpe .copyright{border-top:1px solid rgba(255,255,255,.13);padding-top:18px;color:#a8bcae;font-size:.8rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media(max-width:1000px){.mpe .nav-links{gap:15px}.mpe .hero-grid{gap:24px}.mpe .hero-visual img{height:420px}.mpe .outcome-grid{grid-template-columns:repeat(3,1fr)}.mpe .module-card{grid-template-columns:1fr}.mpe .module-card img{height:180px;min-height:180px}.mpe .module-body{padding:21px}.mpe .module-card{min-height:0}}
-@media(max-width:760px){.mpe .container{width:min(100% - 30px,600px)}.mpe .nav{min-height:72px}.mpe .brand img{width:180px}.mpe .menu-toggle{display:block}.mpe .nav-links{display:none;position:absolute;left:15px;right:15px;top:68px;background:white;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);align-items:stretch;flex-direction:column;gap:14px}.mpe .nav-links.open{display:flex}.mpe .nav-links .btn{width:100%}.mpe .hero{padding:30px 0 42px}.mpe .hero-grid{grid-template-columns:1fr;gap:28px}.mpe .hero-copy{order:1}.mpe .hero-visual{order:2}.mpe .hero-visual img{height:340px}.mpe .floating-card{left:12px;bottom:14px}.mpe .hero-copy>p{font-size:1rem}.mpe .hero-meta{gap:12px}.mpe .trust-grid{grid-template-columns:1fr;gap:14px;padding:20px 0}.mpe .trust-item{justify-content:flex-start}.mpe .trust-item span{font-size:.82rem}.mpe .attend-grid{grid-template-columns:1fr}.mpe section{padding:62px 0}.mpe .overview-grid,.mpe .method-grid,.mpe .facilitator-grid{grid-template-columns:1fr;gap:28px}.mpe .overview-photo img{height:300px}.mpe .outcome-grid{grid-template-columns:1fr 1fr}.mpe .outcome-card{min-height:0;padding:18px}.mpe .modules-grid{grid-template-columns:1fr}.mpe .module-card{grid-template-columns:.78fr 1fr}.mpe .module-card img{height:100%;min-height:250px}.mpe .module-body{padding:18px}.mpe .module-body h3{font-size:1.15rem}.mpe .method-steps{gap:10px}.mpe .facilitator-photo img{height:330px}.mpe .session-grid{grid-template-columns:1fr}.mpe .session-card{padding:23px}.mpe .cta-band{padding-bottom:62px}.mpe .cta-inner{padding:30px 24px;align-items:flex-start;flex-direction:column}.mpe .footer-grid{grid-template-columns:1fr 1fr;gap:28px}.mpe .footer-grid>div:first-child{grid-column:1/-1}}
+@media(max-width:760px){.mpe .container{width:min(100% - 30px,600px)}.mpe .nav{min-height:72px}.mpe .brand img{width:180px}.mpe .menu-toggle{display:block}.mpe .nav-links{display:none;position:absolute;left:15px;right:15px;top:68px;background:white;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);align-items:stretch;flex-direction:column;gap:14px}.mpe .nav-links.open{display:flex}.mpe .nav-links .btn{width:100%}.mpe .hero{padding:30px 0 42px}.mpe .hero-grid{grid-template-columns:1fr;gap:28px}.mpe .hero-copy{order:1}.mpe .hero-visual{order:2}.mpe .hero-visual img{height:340px}.mpe .floating-card{left:12px;bottom:14px}.mpe .hero-copy>p{font-size:1rem}.mpe .hero-meta{gap:12px}.mpe .trust-grid{grid-template-columns:1fr;gap:14px;padding:20px 0}.mpe .trust-item{justify-content:flex-start}.mpe .trust-item span{font-size:.82rem}.mpe .attend-grid{grid-template-columns:1fr}.mpe section{padding:62px 0}.mpe .overview-grid,.mpe .method-grid{grid-template-columns:1fr;gap:28px}.mpe .overview-photo img{height:300px}.mpe .outcome-grid{grid-template-columns:1fr 1fr}.mpe .outcome-card{min-height:0;padding:18px}.mpe .modules-grid{grid-template-columns:1fr}.mpe .module-card{grid-template-columns:.78fr 1fr}.mpe .module-card img{height:100%;min-height:250px}.mpe .module-body{padding:18px}.mpe .module-body h3{font-size:1.15rem}.mpe .method-steps{gap:10px}.mpe .session-grid{grid-template-columns:1fr}.mpe .session-card{padding:23px}.mpe .cta-band{padding-bottom:62px}.mpe .cta-inner{padding:30px 24px;align-items:flex-start;flex-direction:column}.mpe .footer-grid{grid-template-columns:1fr 1fr;gap:28px}.mpe .footer-grid>div:first-child{grid-column:1/-1}}
 @media(max-width:460px){.mpe .enquire-wrap{width:100%}.mpe .enquire-wrap>.btn{width:100%}.mpe .enquire-menu{left:0;right:0}.mpe h1{font-size:2.65rem}.mpe .hero-visual img{height:290px}.mpe .outcome-grid{grid-template-columns:1fr}.mpe .outcome-card{padding:19px}.mpe .module-card{grid-template-columns:1fr}.mpe .module-card img{height:190px;min-height:190px}.mpe .module-body{padding:22px}.mpe .method-steps{grid-template-columns:1fr}.mpe .session-bottom{align-items:flex-start;flex-direction:column}.mpe .session-bottom .btn{width:100%}.mpe .footer-grid{grid-template-columns:1fr}.mpe .footer-grid>div:first-child{grid-column:auto}.mpe .copyright{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){.mpe *,.mpe *:before,.mpe *:after{transition:none!important}}
 `;
@@ -451,39 +446,6 @@ export default function ManagingPeoplePage() {
         </div>
       </section>
 
-      <section id="facilitator">
-        <div className="container facilitator-grid">
-          <div className="facilitator-photo">
-            <img
-              src="/images/christian-tetteh-agbasi.jpg"
-              alt="Professional workplace coaching and leadership discussion"
-            />
-          </div>
-          <div className="facilitator-copy">
-            <div className="eyebrow">Your facilitator</div>
-            <h2>Christian Tetteh</h2>
-            <div className="role">Leadership Development Facilitator &amp; Certified Trainer</div>
-            <p>
-              Christian Tetteh facilitates leadership development across diverse business
-              sectors in Ghana, Nigeria, Kenya and Côte d&rsquo;Ivoire. The supplied programme profile
-              notes more than 100 workshop sessions in leadership, management, soft skills and personal
-              effectiveness.
-            </p>
-            <p>
-              He has held Learning &amp; Development / Training Manager roles at Airtel and FanMilk,
-              and has delivered training for organisations including Unilever, Shell, Shelf Drilling,
-              NHIA, Fido Ghana, Jobberman, Bauer Engineering, CalBank, Newmont and Barrow &amp; Hammer
-              Group.
-            </p>
-            <div className="credential-pills">
-              <span className="pill">MBA (Human Resources)</span>
-              <span className="pill">BSc Psychology — University of Ghana</span>
-              <span className="pill">PG Certificate, Training &amp; Development — University of Cape Town</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="sessions" id="sessions">
         <div className="container">
           <div className="section-head">
@@ -496,14 +458,14 @@ export default function ManagingPeoplePage() {
               <div className="session-top">
                 <div>
                   <div className="session-tag">Tema / Accra</div>
-                  <h3>November session</h3>
+                  <h3>December session</h3>
                 </div>
                 <span className="trust-icon">⌖</span>
               </div>
               <div className="session-detail">
                 <div className="s-icon">▦</div>
                 <div>
-                  <strong>18–20 November 2026</strong>
+                  <strong>1–3 December 2026</strong>
                   <span>Three-day workshop</span>
                 </div>
               </div>
@@ -526,21 +488,21 @@ export default function ManagingPeoplePage() {
                   programLabel="Managing People Effectively"
                   className="btn btn-primary"
                 />
-                <EnquireOptions sessionLabel="November session in Tema" />
+                <EnquireOptions sessionLabel="December session in Tema" />
               </div>
             </article>
             <article className="session-card">
               <div className="session-top">
                 <div>
                   <div className="session-tag">Sunyani</div>
-                  <h3>December session</h3>
+                  <h3>November session</h3>
                 </div>
                 <span className="trust-icon">⌖</span>
               </div>
               <div className="session-detail">
                 <div className="s-icon">▦</div>
                 <div>
-                  <strong>1–3 December 2026</strong>
+                  <strong>18–20 November 2026</strong>
                   <span>Three-day workshop</span>
                 </div>
               </div>
@@ -563,7 +525,7 @@ export default function ManagingPeoplePage() {
                   programLabel="Managing People Effectively"
                   className="btn btn-primary"
                 />
-                <EnquireOptions sessionLabel="December session in Sunyani" />
+                <EnquireOptions sessionLabel="November session in Sunyani" />
               </div>
             </article>
           </div>

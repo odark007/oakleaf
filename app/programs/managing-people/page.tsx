@@ -457,43 +457,6 @@ export default function ManagingPeoplePage() {
             <article className="session-card featured">
               <div className="session-top">
                 <div>
-                  <div className="session-tag">Tema / Accra</div>
-                  <h3>December session</h3>
-                </div>
-                <span className="trust-icon">⌖</span>
-              </div>
-              <div className="session-detail">
-                <div className="s-icon">▦</div>
-                <div>
-                  <strong>1–3 December 2026</strong>
-                  <span>Three-day workshop</span>
-                </div>
-              </div>
-              <div className="session-detail">
-                <div className="s-icon">⌖</div>
-                <div>
-                  <strong>Entreva Hub</strong>
-                  <span>Community 25, Tema</span>
-                </div>
-              </div>
-              <div className="session-bottom">
-                <div>
-                  <div className="fee-label">Programme fee</div>
-                  <div className="fee">
-                    GHS 3,700 <small>/ participant</small>
-                  </div>
-                </div>
-                <TrainerRegisterTrigger
-                  program="managing-people"
-                  programLabel="Managing People Effectively"
-                  className="btn btn-primary"
-                />
-                <EnquireOptions sessionLabel="December session in Tema" />
-              </div>
-            </article>
-            <article className="session-card">
-              <div className="session-top">
-                <div>
                   <div className="session-tag">Sunyani</div>
                   <h3>November session</h3>
                 </div>
@@ -523,9 +486,48 @@ export default function ManagingPeoplePage() {
                 <TrainerRegisterTrigger
                   program="managing-people"
                   programLabel="Managing People Effectively"
+                  session="November 2026 – Sunyani"
                   className="btn btn-primary"
                 />
                 <EnquireOptions sessionLabel="November session in Sunyani" />
+              </div>
+            </article>
+            <article className="session-card">
+              <div className="session-top">
+                <div>
+                  <div className="session-tag">Tema / Accra</div>
+                  <h3>December session</h3>
+                </div>
+                <span className="trust-icon">⌖</span>
+              </div>
+              <div className="session-detail">
+                <div className="s-icon">▦</div>
+                <div>
+                  <strong>1–3 December 2026</strong>
+                  <span>Three-day workshop</span>
+                </div>
+              </div>
+              <div className="session-detail">
+                <div className="s-icon">⌖</div>
+                <div>
+                  <strong>Entreva Hub</strong>
+                  <span>Community 25, Tema</span>
+                </div>
+              </div>
+              <div className="session-bottom">
+                <div>
+                  <div className="fee-label">Programme fee</div>
+                  <div className="fee">
+                    GHS 3,700 <small>/ participant</small>
+                  </div>
+                </div>
+                <TrainerRegisterTrigger
+                  program="managing-people"
+                  programLabel="Managing People Effectively"
+                  session="December 2026 – Tema"
+                  className="btn btn-primary"
+                />
+                <EnquireOptions sessionLabel="December session in Tema" />
               </div>
             </article>
           </div>

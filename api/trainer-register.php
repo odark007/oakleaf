@@ -46,6 +46,7 @@ if (!isset($knownPrograms[$program])) {
     $program = 'certified-trainer';
 }
 $programName = $knownPrograms[$program];
+$session = trim($_POST['session'] ?? '');
 
 if ($first_name === '' || $email === '' || $phone === '') {
     http_response_code(400);
@@ -92,6 +93,7 @@ try {
         whatsapp VARCHAR(20) DEFAULT NULL,
         email VARCHAR(255) NOT NULL,
         program VARCHAR(100) NOT NULL DEFAULT 'certified-trainer',
+        session VARCHAR(100) DEFAULT NULL,
         status VARCHAR(50) DEFAULT 'new',
         submitted_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
@@ -101,9 +103,14 @@ try {
         $pdo->exec("ALTER TABLE trainer_registrations ADD COLUMN program VARCHAR(100) NOT NULL DEFAULT 'certified-trainer' AFTER email");
     }
 
+    $sessionCol = $pdo->query("SHOW COLUMNS FROM trainer_registrations LIKE 'session'")->fetchAll();
+    if (count($sessionCol) === 0) {
+        $pdo->exec("ALTER TABLE trainer_registrations ADD COLUMN session VARCHAR(100) DEFAULT NULL AFTER program");
+    }
+
     $stmt = $pdo->prepare(
-        'INSERT INTO trainer_registrations (first_name, last_name, organization, position, phone, whatsapp, email, program, submitted_at)
-         VALUES (:first_name, :last_name, :organization, :position, :phone, :whatsapp, :email, :program, NOW())'
+        'INSERT INTO trainer_registrations (first_name, last_name, organization, position, phone, whatsapp, email, program, session, submitted_at)
+         VALUES (:first_name, :last_name, :organization, :position, :phone, :whatsapp, :email, :program, :session, NOW())'
     );
 
     $stmt->execute([
@@ -115,6 +122,7 @@ try {
         ':whatsapp' => $whatsapp,
         ':email' => $email,
         ':program' => $program,
+        ':session' => $session !== '' ? $session : null,
     ]);
 
     $registrationId = $pdo->lastInsertId();
@@ -151,7 +159,8 @@ try {
             'template_params' => [
                 'to_email' => 'entrevahub@gmail.com',
                 'program_name' => $programName,
-                'subject' => 'You have received a registration - ' . $programName,
+                'session' => $session !== '' ? $session : 'N/A',
+                'subject' => 'You have received a registration - ' . $programName . ($session !== '' ? ' (' . $session . ')' : ''),
                 'name' => $full_name,
                 'first_name' => $first_name,
                 'last_name' => $last_name,
@@ -184,9 +193,10 @@ try {
 
     if (!$emailSent) {
         $to = 'entrevahub@gmail.com';
-        $subject = 'You have received a registration - ' . $programName;
+        $subject = 'You have received a registration - ' . $programName . ($session !== '' ? ' (' . $session . ')' : '');
         $plainMessage = "New Registration - {$programName}\n\n";
         $plainMessage .= "Program: {$programName}\n";
+        $plainMessage .= "Session: " . ($session !== '' ? $session : 'N/A') . "\n";
         $plainMessage .= "Name: {$first_name} {$last_name}\n";
         $plainMessage .= "Email: {$email}\n";
         $plainMessage .= "Phone: {$phone}\n";

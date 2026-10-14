@@ -7,11 +7,13 @@ export function TrainerRegisterModal({
   onClose,
   program = "certified-trainer",
   programLabel = "Certified Trainer Program",
+  session,
 }: {
   isOpen: boolean;
   onClose: () => void;
   program?: string;
   programLabel?: string;
+  session?: string;
 }) {
   const [formData, setFormData] = useState({
     full_name: "",
@@ -42,6 +44,7 @@ export function TrainerRegisterModal({
         form.append(key, value);
       });
       form.append("program", program);
+      if (session) form.append("session", session);
 
       const response = await fetch("/api/trainer-register.php", {
         method: "POST",
@@ -77,6 +80,7 @@ export function TrainerRegisterModal({
             <>
               <h2 className="mb-4 text-xl font-semibold text-oak-charcoal">
                 Register for {programLabel}
+                {session ? ` — ${session}` : ""}
               </h2>
 
               {error && <div className="mb-4 rounded bg-red-50 p-3 text-sm text-red-600">{error}</div>}

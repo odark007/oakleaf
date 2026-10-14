@@ -6,10 +6,12 @@ import { TrainerRegisterModal } from "./trainer-register-modal";
 export function TrainerRegisterTrigger({
   program = "certified-trainer",
   programLabel = "Certified Trainer Program",
+  session,
   className,
 }: {
   program?: string;
   programLabel?: string;
+  session?: string;
   className?: string;
 }) {
   const [open, setOpen] = useState(false);
@@ -34,6 +36,7 @@ export function TrainerRegisterTrigger({
         onClose={() => setOpen(false)}
         program={program}
         programLabel={programLabel}
+        session={session}
       />
     </>
   );

@@ -51,7 +51,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'export_csv') {
     header('Content-Type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename=oakleaf_trainer_registrations_' . date('Y-m-d') . '.csv');
     $output = fopen('php://output', 'w');
-    fputcsv($output, ['ID', 'Date', 'Program', 'First Name', 'Last Name', 'Email', 'Phone', 'WhatsApp', 'Organization', 'Position', 'Status']);
+    fputcsv($output, ['ID', 'Date', 'Program', 'Session', 'First Name', 'Last Name', 'Email', 'Phone', 'WhatsApp', 'Organization', 'Position', 'Status']);
 
     $stmt = $pdo->query("SELECT * FROM trainer_registrations ORDER BY submitted_at DESC");
     while ($row = $stmt->fetch()) {
@@ -60,6 +60,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'export_csv') {
             $row['id'],
             $row['submitted_at'],
             $programLabels[$prog] ?? $prog,
+            $row['session'] ?? '',
             $row['first_name'],
             $row['last_name'],
             $row['email'],
@@ -185,6 +186,7 @@ render_admin_header('Programs Registration', 'programs');
                         <tr>
                             <th class="py-3.5 px-4">Date</th>
                             <th class="py-3.5 px-4">Program</th>
+                            <th class="py-3.5 px-4">Session</th>
                             <th class="py-3.5 px-4">Name</th>
                             <th class="py-3.5 px-4">Contact</th>
                             <th class="py-3.5 px-4">Organization</th>
@@ -204,6 +206,9 @@ render_admin_header('Programs Registration', 'programs');
                                     <span class="inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold <?= $prog === 'managing-people' ? 'bg-sky-100 text-sky-700' : 'bg-emerald-100 text-emerald-700' ?>">
                                         <?= htmlspecialchars($programLabels[$prog] ?? $prog) ?>
                                     </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-slate-600 whitespace-nowrap">
+                                    <?= htmlspecialchars($row['session'] ?? '—') ?>
                                 </td>
                                 <td class="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">
                                     <?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?>

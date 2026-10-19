@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { ContactForm } from "@/components/sections/contact-form";
@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with Oakleaf Training & Consulting. Tell us about your organization and the challenge you want to address.",
-  alternates: { canonical: "/contact" },
 };
 
 const Mail = getIcon("Mail");

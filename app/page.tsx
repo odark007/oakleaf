@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { LinkButton } from "@/components/ui/button";
 import { SectionHeading } from "@/components/sections/section-heading";
@@ -9,12 +9,22 @@ import { ImageSlider } from "@/components/sections/image-slider";
 import { services } from "@/data/services";
 import { approachSteps } from "@/data/approach-steps";
 import { getIcon } from "@/lib/icons";
+import { socialMetadata } from "@/lib/seo";
+
+const homeDescription =
+  "Oakleaf Training & Consulting provides practical training, consulting, strategy, and organizational development solutions for businesses, non-profits, institutions, and leaders across Ghana.";
 
 export const metadata: Metadata = {
   title: "Growing People. Strengthening Organizations. Creating Impact.",
-  description:
-    "Oakleaf Training & Consulting provides practical training, consulting, strategy, and organizational development solutions for businesses, non-profits, institutions, and leaders across Ghana.",
-  alternates: { canonical: "/" },
+  description: homeDescription,
+  ...socialMetadata({
+    title: "Oakleaf Training & Consulting | Growing People. Strengthening Organizations. Creating Impact.",
+    description: homeDescription,
+    path: "/",
+    image: "/og-image.png",
+    imageWidth: 1200,
+    imageHeight: 630,
+  }),
 };
 
 const sectors = [
@@ -194,7 +204,7 @@ export default function HomePage() {
                 <div>
                   <p className="text-[0.8rem] font-medium uppercase tracking-wide text-oak-charcoal/40">Dates</p>
                   <p className="mt-1 text-[0.95rem] font-medium text-oak-charcoal">
-                    Monday, 23rd – Friday, 27th November 2026
+                    Monday, 23rd â€“ Friday, 27th November 2026
                   </p>
                 </div>
                 <div>
@@ -231,14 +241,14 @@ export default function HomePage() {
               </h2>
               <p className="mt-4 text-[0.98rem] leading-relaxed text-oak-charcoal/70">
                 Build the practical leadership and people-management skills to motivate teams,
-                navigate challenges and help your organisation achieve its goals — covering
+                navigate challenges and help your organisation achieve its goals â€” covering
                 self-awareness, communication, team management and leadership.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-6">
                 <div>
                   <p className="text-[0.8rem] font-medium uppercase tracking-wide text-oak-charcoal/40">Dates</p>
                   <p className="mt-1 text-[0.95rem] font-medium text-oak-charcoal">
-                    18–20 November 2026, Sunyani &amp; 1–3 December 2026, Tema
+                    18â€“20 November 2026, Sunyani &amp; 1â€“3 December 2026, Tema
                   </p>
                 </div>
                 <div>

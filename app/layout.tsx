@@ -3,7 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/data/site";
-import { organizationJsonLd, localBusinessJsonLd } from "@/lib/structured-data";
+import { organizationJsonLd, localBusinessJsonLd, websiteJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
@@ -13,8 +13,19 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
+    locale: "en_GH",
     url: siteConfig.domain,
     siteName: siteConfig.name,
     title: siteConfig.name,
@@ -39,6 +50,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: "#0b5c36",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,6 +69,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
         />
         <a
           href="#main-content"

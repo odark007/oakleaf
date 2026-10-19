@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/page-hero";
@@ -7,10 +7,9 @@ import { teamMembers } from "@/data/team";
 import { getIcon } from "@/lib/icons";
 
 export const metadata: Metadata = {
-  title: "Team",
+  title: "Our Team",
   description:
-    "Meet the team behind Oakleaf Training & Consulting — dedicated professionals committed to developing people and organizations.",
-  alternates: { canonical: "/about/team" },
+    "Meet the team behind Oakleaf Training & Consulting â€” dedicated professionals committed to developing people and organizations.",
 };
 
 const Linkedin = getIcon("Linkedin");

@@ -12,14 +12,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/about",
+    "/about/team",
     "/services",
     "/approach",
     "/programs",
     "/programs/certified-trainer",
+    "/programs/certified-trainer/register",
     "/programs/mldp",
+    "/programs/managing-people",
     "/digital-transformation",
-    "/digital-transformation/training",
-    "/digital-transformation/consulting",
     "/contact",
   ];
 
@@ -29,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const allRoutes = [...staticRoutes, ...serviceRoutes, ...approachRoutes];
 
   return allRoutes.map((route) => ({
-    url: `${base}${route}`,
+    url: route === "" ? base : `${base}${route}/`,
     lastModified: now,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route.split("/").length > 2 ? 0.6 : 0.8,

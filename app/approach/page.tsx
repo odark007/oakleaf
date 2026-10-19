@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/page-hero";
@@ -11,8 +11,7 @@ import { getIcon } from "@/lib/icons";
 export const metadata: Metadata = {
   title: "Our Approach",
   description:
-    "From diagnosis to learning, application, behavior change, and organizational impact — Oakleaf's seven-stage approach to training and consulting.",
-  alternates: { canonical: "/approach" },
+    "From diagnosis to learning, application, behavior change, and organizational impact â€” Oakleaf's seven-stage approach to training and consulting.",
 };
 
 const ArrowUpRight = getIcon("ArrowUpRight");

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import { CtaSection } from "@/components/sections/cta-section";
 import { programs } from "@/data/programs";
@@ -6,11 +6,18 @@ import { getIcon } from "@/lib/icons";
 import { TestimonialSlider } from "@/components/sections/testimonial-slider";
 import { ContactPhone } from "@/components/sections/contact-phone";
 import { TrainerRegisterTrigger } from "@/components/sections/trainer-register-trigger";
+import { socialMetadata } from "@/lib/seo";
+import { courseJsonLd, breadcrumbJsonLd, educationEventJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Become a Certified Trainer",
   description: programs.certifiedTrainer.summary,
-  alternates: { canonical: "/programs/certified-trainer" },
+  ...socialMetadata({
+    title: "Become a Certified Trainer | Oakleaf Training & Consulting",
+    description: programs.certifiedTrainer.summary,
+    path: "/programs/certified-trainer",
+    image: "/images/Certified%20Trainer%20Course%20Banner.jpg",
+  }),
 };
 
 const CheckCircle2 = getIcon("CheckCircle2");
@@ -32,11 +39,55 @@ const earnedSkills = [
 export default function CertifiedTrainerPage() {
   return (
     <>
+      <h1 className="sr-only">
+        Become a Certified Trainer in Ghana â€” 5-day GRID training methodology course
+      </h1>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            courseJsonLd({
+              name: "Become a Certified Trainer",
+              description: programs.certifiedTrainer.summary,
+              path: "/programs/certified-trainer",
+            })
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            educationEventJsonLd({
+              name: "Become a Certified Trainer â€” November 2026 Session (Tema)",
+              description: programs.certifiedTrainer.summary,
+              path: "/programs/certified-trainer",
+              startDate: "2026-11-23",
+              endDate: "2026-11-27",
+              locality: "Tema",
+              venueName: "Entreva Hub, Community 25, Tema",
+              price: "4700",
+            })
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Programs", path: "/programs" },
+              { name: "Become a Certified Trainer", path: "/programs/certified-trainer" },
+            ])
+          ),
+        }}
+      />
       <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
         <div className="relative aspect-[1983/793] w-full md:hidden">
           <Image
             src="/images/Certified Trainer Course Banner.jpg"
-            alt="Certified Trainer Course"
+            alt="Participants in a Become a Certified Trainer workshop session in Ghana"
             fill
             className="object-cover"
             priority
@@ -64,7 +115,7 @@ export default function CertifiedTrainerPage() {
                 className="mx-5 flex items-center gap-10 whitespace-nowrap text-[0.9rem] font-medium text-white/90"
               >
                 {skill}
-                <span className="text-oak-amber">•</span>
+                <span className="text-oak-amber">â€¢</span>
               </span>
             ))}
           </div>
@@ -89,7 +140,7 @@ export default function CertifiedTrainerPage() {
             </h3>
             <ul className="mt-3 space-y-2 leading-relaxed">
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>
                   Anyone who needs to develop their personal skills, competence and abilities in Self
                   Confidence, Public Speaking, Leadership, Goal Setting, Attitude Control, Communication,
@@ -97,44 +148,44 @@ export default function CertifiedTrainerPage() {
                 </span>
               </li>
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>Anyone who wants to develop their &ldquo;hidden potential&rdquo;</span>
               </li>
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>Anyone who wants to develop their training/facilitation skills</span>
               </li>
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>Anyone who wants to change the behavior and attitude of others</span>
               </li>
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>
                   Anyone who wants to gain competence to design, write manual and facilitate training using
                   the GRID Training Method
                 </span>
               </li>
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>
                   Anyone who desires a simplified and easy-to-use methodology to design and train others
                 </span>
               </li>
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>Subject-matter experts moving into a training or facilitation role</span>
               </li>
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>HR and L&amp;D professionals expanding their delivery skills</span>
               </li>
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>Supervisors and managers who train and coach their teams</span>
               </li>
               <li className="flex gap-2">
-                <span>•</span>
+                <span>â€¢</span>
                 <span>Independent consultants building a training practice</span>
               </li>
             </ul>
@@ -204,11 +255,11 @@ export default function CertifiedTrainerPage() {
                 <p className="mt-3 leading-relaxed">The proven outcomes of this training are:</p>
                 <ul className="mt-3 space-y-2">
                   <li className="flex gap-2">
-                    <span>•</span>
+                    <span>â€¢</span>
                     <span>develop their hidden potential and be more productive</span>
                   </li>
                   <li className="flex gap-2">
-                    <span>•</span>
+                    <span>â€¢</span>
                     <span>
                       develop these 9 critical skills essential for any effective leader or professional:{" "}
                       <em>public speaking</em>, <em>presentation skills</em>, <em>self-confidence</em>,{" "}
@@ -217,7 +268,7 @@ export default function CertifiedTrainerPage() {
                     </span>
                   </li>
                   <li className="flex gap-2">
-                    <span>•</span>
+                    <span>â€¢</span>
                     <span>
                       competence to design and deliver impactful, engaging and highly interactive training to give
                       learners great learning experience and transfer skills using the GRID methodology.
@@ -229,7 +280,7 @@ export default function CertifiedTrainerPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <h4 className="font-semibold text-oak-charcoal">DATES</h4>
-                  <p className="mt-1">Monday, 23rd – Friday, 27th November 2026</p>
+                  <p className="mt-1">Monday, 23rd â€“ Friday, 27th November 2026</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-oak-charcoal">VENUE</h4>
@@ -242,23 +293,23 @@ export default function CertifiedTrainerPage() {
                 <p className="mt-2">GHS 4,700 per participant.</p>
                 <ul className="mt-3 space-y-2">
                   <li className="flex gap-2">
-                    <span>•</span>
+                    <span>â€¢</span>
                     <span>5-day of 35-hours in-person training</span>
                   </li>
                   <li className="flex gap-2">
-                    <span>•</span>
+                    <span>â€¢</span>
                     <span>printed training workbook</span>
                   </li>
                   <li className="flex gap-2">
-                    <span>•</span>
+                    <span>â€¢</span>
                     <span>printed training manual</span>
                   </li>
                   <li className="flex gap-2">
-                    <span>•</span>
+                    <span>â€¢</span>
                     <span>printed certificate</span>
                   </li>
                   <li className="flex gap-2">
-                    <span>•</span>
+                    <span>â€¢</span>
                     <span>snack and lunch</span>
                   </li>
                 </ul>

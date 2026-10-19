@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { services, getServiceBySlug } from "@/data/services";
@@ -24,7 +24,6 @@ export async function generateMetadata({
   return {
     title: service.title,
     description: service.summary,
-    alternates: { canonical: `/services/${service.slug}` },
   };
 }
 

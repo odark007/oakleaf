@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Register - Become a Certified Trainer",
-  description: "Register for the Certified Trainer Program",
-  alternates: { canonical: "/programs/certified-trainer/register" },
+  description:
+    "Register for the Become a Certified Trainer 5-day GRID training program in Tema, Ghana. Secure your seat for the next cohort.",
 };
 
 export default function TrainerRegisterPage() {

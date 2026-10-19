@@ -1,13 +1,18 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaSection } from "@/components/sections/cta-section";
 import { programs } from "@/data/programs";
 import { getIcon } from "@/lib/icons";
+import { socialMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Management and Leadership Development Program (MLDP)",
   description: programs.mldp.summary,
-  alternates: { canonical: "/programs/mldp" },
+  ...socialMetadata({
+    title: "Management and Leadership Development Program (MLDP) | Oakleaf Training & Consulting",
+    description: programs.mldp.summary,
+    path: "/programs/mldp",
+  }),
 };
 
 const CheckCircle2 = getIcon("CheckCircle2");

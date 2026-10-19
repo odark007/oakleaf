@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaSection } from "@/components/sections/cta-section";
@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "Oakleaf Training & Consulting is a professional training and consulting firm committed to helping organizations unlock the potential of their people.",
-  alternates: { canonical: "/about" },
 };
 
 const aboutNav = [
@@ -57,7 +56,7 @@ export default function AboutPage() {
             <div className="relative hidden lg:block">
               <Image
                 src="/images/Who We Are.jpg"
-                alt="Who We Are"
+                alt="Oakleaf consultants collaborating with a client team during a workshop"
                 width={400}
                 height={300}
                 className="rounded-2xl border border-oak-line object-cover shadow-sm"
@@ -90,7 +89,7 @@ export default function AboutPage() {
             <div className="relative hidden lg:block">
               <Image
                 src="/images/Our Mission.jpg"
-                alt="Our Mission"
+                alt="Oakleaf trainer engaging participants during a capacity development session"
                 width={400}
                 height={300}
                 className="rounded-2xl border border-oak-line object-cover shadow-sm"
@@ -112,7 +111,7 @@ export default function AboutPage() {
             <div className="relative hidden lg:block">
               <Image
                 src="/images/Our Vision.jpg"
-                alt="Our Vision"
+                alt="Professionals learning together at an Oakleaf leadership training event"
                 width={400}
                 height={300}
                 className="rounded-2xl border border-oak-line object-cover shadow-sm"

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { ServiceCard } from "@/components/sections/service-card";
 import { CtaSection } from "@/components/sections/cta-section";
@@ -7,8 +7,7 @@ import { services } from "@/data/services";
 export const metadata: Metadata = {
   title: "Our Services",
   description:
-    "Training and capacity development, leadership development, organizational development, HR consulting, performance management, consulting and advisory, and team building — customized to your organization.",
-  alternates: { canonical: "/services" },
+    "Training and capacity development, leadership development, organizational development, HR consulting, performance management, consulting and advisory, and team building â€” customized to your organization.",
 };
 
 export default function ServicesPage() {
@@ -24,7 +23,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Our Services"
         title="Practical solutions across seven areas"
-        description="Every service can be customized to your organization's context — from a single workshop to a multi-year capacity-building partnership."
+        description="Every service can be customized to your organization's context â€” from a single workshop to a multi-year capacity-building partnership."
         transparent
       />
         </div>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { approachPages, getApproachPageBySlug } from "@/data/approach-pages";
 import { PageHero } from "@/components/sections/page-hero";
@@ -19,7 +19,6 @@ export async function generateMetadata({
   return {
     title: page.title,
     description: page.tagline,
-    alternates: { canonical: `/approach/${page.slug}` },
   };
 }
 

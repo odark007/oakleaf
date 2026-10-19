@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaSection } from "@/components/sections/cta-section";
@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   title: "Digital Transformation",
   description:
     "Practical support to help organizations build digital capability among their people and integrate technology into how they work.",
-  alternates: { canonical: "/digital-transformation" },
 };
 
 const Laptop = getIcon("Laptop");

@@ -1,15 +1,21 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaSection } from "@/components/sections/cta-section";
 import { programs } from "@/data/programs";
 import { getIcon } from "@/lib/icons";
+import { socialMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Programs",
+  title: "Our Programs",
   description:
-    "Two flagship Oakleaf programs: Become a Certified Trainer, and the Management and Leadership Development Program (MLDP).",
-  alternates: { canonical: "/programs" },
+    "Oakleaf programs: Become a Certified Trainer, Managing People Effectively, and the Management and Leadership Development Program (MLDP) in Ghana.",
+  ...socialMetadata({
+    title: "Our Programs | Oakleaf Training & Consulting",
+    description:
+      "Oakleaf programs: Become a Certified Trainer, Managing People Effectively, and the Management and Leadership Development Program (MLDP) in Ghana.",
+    path: "/programs",
+  }),
 };
 
 const GraduationCap = getIcon("GraduationCap");

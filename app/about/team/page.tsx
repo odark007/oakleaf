@@ -9,7 +9,7 @@ import { getIcon } from "@/lib/icons";
 export const metadata: Metadata = {
   title: "Our Team",
   description:
-    "Meet the team behind Oakleaf Training & Consulting â€” dedicated professionals committed to developing people and organizations.",
+    "Meet the team behind Oakleaf Training & Consulting — dedicated professionals committed to developing people and organizations.",
 };
 
 const Linkedin = getIcon("Linkedin");

@@ -11,7 +11,7 @@ import { getIcon } from "@/lib/icons";
 export const metadata: Metadata = {
   title: "Our Approach",
   description:
-    "From diagnosis to learning, application, behavior change, and organizational impact â€” Oakleaf's seven-stage approach to training and consulting.",
+    "From diagnosis to learning, application, behavior change, and organizational impact — Oakleaf's seven-stage approach to training and consulting.",
 };
 
 const ArrowUpRight = getIcon("ArrowUpRight");

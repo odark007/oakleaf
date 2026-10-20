@@ -25,7 +25,7 @@ const managingPeopleJsonLd = [
     path: "/programs/managing-people",
   }),
   educationEventJsonLd({
-    name: "Managing People Effectively â€” November Session (Sunyani)",
+    name: "Managing People Effectively — November Session (Sunyani)",
     description: pageDescription,
     path: "/programs/managing-people",
     startDate: "2026-11-18",
@@ -34,7 +34,7 @@ const managingPeopleJsonLd = [
     price: "3700",
   }),
   educationEventJsonLd({
-    name: "Managing People Effectively â€” December Session (Tema)",
+    name: "Managing People Effectively — December Session (Tema)",
     description: pageDescription,
     path: "/programs/managing-people",
     startDate: "2026-12-01",
@@ -204,10 +204,10 @@ export default function ManagingPeoplePage() {
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#sessions">
-                Explore Upcoming Sessions <span aria-hidden="true">â†’</span>
+                Explore Upcoming Sessions <span aria-hidden="true">→</span>
               </a>
               <a className="text-link" href="#modules">
-                Explore the modules â†“
+                Explore the modules ↓
               </a>
             </div>
             <div className="hero-meta">
@@ -235,21 +235,21 @@ export default function ManagingPeoplePage() {
       <div className="trust-strip">
         <div className="container trust-grid">
           <div className="trust-item">
-            <div className="trust-icon">â—Ž</div>
+            <div className="trust-icon">◎</div>
             <div>
               <strong>People-first management</strong>
               <span>Lead people before systems and resources.</span>
             </div>
           </div>
           <div className="trust-item">
-            <div className="trust-icon">â†—</div>
+            <div className="trust-icon">↗</div>
             <div>
               <strong>Practical skills transfer</strong>
               <span>Learn through practice and reflection.</span>
             </div>
           </div>
           <div className="trust-item">
-            <div className="trust-icon">â—‡</div>
+            <div className="trust-icon">◇</div>
             <div>
               <strong>Workplace application</strong>
               <span>Connect leadership skills to results.</span>
@@ -283,19 +283,19 @@ export default function ManagingPeoplePage() {
             </p>
             <ul className="check-list">
               <li>
-                <span className="check">âœ“</span>
+                <span className="check">✓</span>
                 <span>Understand and practise effective people management at work.</span>
               </li>
               <li>
-                <span className="check">âœ“</span>
+                <span className="check">✓</span>
                 <span>Strengthen personal leadership and effectiveness.</span>
               </li>
               <li>
-                <span className="check">âœ“</span>
+                <span className="check">✓</span>
                 <span>Influence, motivate and support people to perform.</span>
               </li>
               <li>
-                <span className="check">âœ“</span>
+                <span className="check">✓</span>
                 <span>Manage teams while addressing conflict and diversity.</span>
               </li>
             </ul>
@@ -311,23 +311,23 @@ export default function ManagingPeoplePage() {
           </div>
           <ul className="attend-grid">
             <li>
-              <span className="check">âœ“</span>
+              <span className="check">✓</span>
               <span>Managers</span>
             </li>
             <li>
-              <span className="check">âœ“</span>
+              <span className="check">✓</span>
               <span>Supervisors and team leaders</span>
             </li>
             <li>
-              <span className="check">âœ“</span>
+              <span className="check">✓</span>
               <span>Business owners / entrepreneurs</span>
             </li>
             <li>
-              <span className="check">âœ“</span>
+              <span className="check">✓</span>
               <span>Leaders</span>
             </li>
             <li>
-              <span className="check">âœ“</span>
+              <span className="check">✓</span>
               <span>Anyone who works with people</span>
             </li>
           </ul>
@@ -428,7 +428,7 @@ export default function ManagingPeoplePage() {
                   <li>Setting goals and planning</li>
                   <li>Designing work</li>
                   <li>Building high-performing teams</li>
-                  <li>Motivating others â€” 101 ways</li>
+                  <li>Motivating others — 101 ways</li>
                   <li>Clarifying values and personal mission</li>
                 </ul>
               </div>
@@ -465,28 +465,28 @@ export default function ManagingPeoplePage() {
               during the workshop, connecting knowledge with practice, attitude and behaviour.
             </p>
             <p>
-              The experience is highly interactive and focuses on applying ideasâ€”not just hearing about
+              The experience is highly interactive and focuses on applying ideas—not just hearing about
               them.
             </p>
           </div>
           <div className="method-steps">
             <div className="method-step">
-              <div className="step-icon">âœ¦</div>
+              <div className="step-icon">✦</div>
               <strong>Practical cases</strong>
               <p>Explore realistic workplace situations and decisions.</p>
             </div>
             <div className="method-step">
-              <div className="step-icon">â–¦</div>
+              <div className="step-icon">▦</div>
               <strong>Group activities</strong>
               <p>Learn collaboratively through structured exercises.</p>
             </div>
             <div className="method-step">
-              <div className="step-icon">â—Ž</div>
+              <div className="step-icon">◎</div>
               <strong>Personal reflection</strong>
               <p>Examine assumptions, values and leadership habits.</p>
             </div>
             <div className="method-step">
-              <div className="step-icon">â†—</div>
+              <div className="step-icon">↗</div>
               <strong>Coaching &amp; presentations</strong>
               <p>Practise ideas, share learning and build confidence.</p>
             </div>
@@ -508,19 +508,19 @@ export default function ManagingPeoplePage() {
                   <div className="session-tag">Sunyani</div>
                   <h3>November session</h3>
                 </div>
-                <span className="trust-icon">âŒ–</span>
+                <span className="trust-icon">⌖</span>
               </div>
               <div className="session-detail">
-                <div className="s-icon">â–¦</div>
+                <div className="s-icon">▦</div>
                 <div>
-                  <strong>18â€“20 November 2026</strong>
+                  <strong>18–20 November 2026</strong>
                   <span>Three-day workshop</span>
                 </div>
               </div>
               <div className="session-detail">
-                <div className="s-icon">âŒ–</div>
+                <div className="s-icon">⌖</div>
                 <div>
-                  <strong>Hotel â€” to be confirmed</strong>
+                  <strong>Eusbett Hotel</strong>
                   <span>Sunyani, Ghana</span>
                 </div>
               </div>
@@ -534,7 +534,7 @@ export default function ManagingPeoplePage() {
                 <TrainerRegisterTrigger
                   program="managing-people"
                   programLabel="Managing People Effectively"
-                  session="November 2026 â€“ Sunyani"
+                  session="November 2026 – Sunyani"
                   className="btn btn-primary"
                 />
                 <EnquireOptions sessionLabel="November session in Sunyani" />
@@ -546,17 +546,17 @@ export default function ManagingPeoplePage() {
                   <div className="session-tag">Tema / Accra</div>
                   <h3>December session</h3>
                 </div>
-                <span className="trust-icon">âŒ–</span>
+                <span className="trust-icon">⌖</span>
               </div>
               <div className="session-detail">
-                <div className="s-icon">â–¦</div>
+                <div className="s-icon">▦</div>
                 <div>
-                  <strong>1â€“3 December 2026</strong>
+                  <strong>1–3 December 2026</strong>
                   <span>Three-day workshop</span>
                 </div>
               </div>
               <div className="session-detail">
-                <div className="s-icon">âŒ–</div>
+                <div className="s-icon">⌖</div>
                 <div>
                   <strong>Entreva Hub</strong>
                   <span>Community 25, Tema</span>
@@ -572,7 +572,7 @@ export default function ManagingPeoplePage() {
                 <TrainerRegisterTrigger
                   program="managing-people"
                   programLabel="Managing People Effectively"
-                  session="December 2026 â€“ Tema"
+                  session="December 2026 – Tema"
                   className="btn btn-primary"
                 />
                 <EnquireOptions sessionLabel="December session in Tema" />
@@ -597,7 +597,7 @@ export default function ManagingPeoplePage() {
               className="btn btn-light"
               href="https://wa.me/233243521917?text=Hello%20Oakleaf%2C%20I%27d%20like%20to%20enquire%20about%20Managing%20People%20Effectively."
             >
-              WhatsApp Oakleaf <span aria-hidden="true">â†—</span>
+              WhatsApp Oakleaf <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>

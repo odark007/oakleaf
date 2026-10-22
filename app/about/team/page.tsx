@@ -20,7 +20,7 @@ export default function TeamPage() {
       <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/Diverse Team in a Modern Office.png')" }}
+          style={{ backgroundImage: "url('/images/Diverse Team in a Modern Office.jpg')" }}
         />
         <div className="absolute inset-0 bg-white/85" />
         <div className="relative">

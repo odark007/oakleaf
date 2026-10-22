@@ -54,7 +54,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-oak-line bg-oak-surface-alt">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/Professional Workshop in a Modern Conference Room-Oakleaf training-consulting.png')" }}
+          style={{ backgroundImage: "url('/images/Professional Workshop in a Modern Conference Room-Oakleaf training-consulting.jpg')" }}
         />
         <div className="absolute inset-0 bg-white/85" />
         <div className="container-oak relative grid gap-12 py-20 md:grid-cols-[1.15fr_0.85fr] md:py-28">

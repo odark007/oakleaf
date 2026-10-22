@@ -66,7 +66,7 @@ export default async function ServiceDetailPage({
                   : slug === "consulting-advisory"
                   ? "Collaborative Teamwork in a Modern Office"
                   : "Diverse Team in a Modern Office"
-              }.png')`,
+              }.jpg')`,
             }}
           />
           <div className="absolute inset-0 bg-white/85" />
